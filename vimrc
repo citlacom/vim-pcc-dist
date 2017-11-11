@@ -133,31 +133,6 @@ let g:unite_source_grep_max_candidates = 1000
 let g:unite_source_history_yank_enable = 1
 call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 0)
 
-if !exists('g:unite_source_menu_menus')
-  let g:unite_source_menu_menus = {}
-endif
-
-let g:unite_source_menu_menus.git = {
-    \ 'description' : '            gestionar repositorios git
-        \                            ⌘ [espacio]g',
-    \}
-let g:unite_source_menu_menus.git.command_candidates = [
-    \['▷ tig                                                        ⌘ ,gt', 'normal ,gt'],
-    \['▷ git status       (Fugitive)                                ⌘ ,gs', 'Gstatus'],
-    \['▷ git diff         (Fugitive)                                ⌘ ,gd', 'Gdiff'],
-    \['▷ git commit       (Fugitive)                                ⌘ ,gc', 'Gcommit'],
-    \['▷ git log          (Fugitive)                                ⌘ ,gl', 'exe "silent Glog | Unite quickfix"'],
-    \['▷ git blame        (Fugitive)                                ⌘ ,gb', 'Gblame'],
-    \['▷ git stage        (Fugitive)                                ⌘ ,gw', 'Gwrite'],
-    \['▷ git checkout     (Fugitive)                                ⌘ ,go', 'Gread'],
-    \['▷ git rm           (Fugitive)                                ⌘ ,gr', 'Gremove'],
-    \['▷ git mv           (Fugitive)                                ⌘ ,gm', 'exe "Gmove " input("destino: ")'],
-    \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp', 'Git! push'],
-    \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP', 'Git! pull'],
-    \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi', 'exe "Git! " input("comando git: ")'],
-    \['▷ git cd           (Fugitive)', 'Gcd'],
-    \]
-
 nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
 nnoremap [unite] <Nop>
 nmap f [unite]
