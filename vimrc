@@ -59,7 +59,15 @@ for p in sys.path:
 EOF
 
 filetype plugin on
-" Use the pman PHP doc
+
+" Do not show sql-syntax highlighting inside php.
+autocmd FileType php let php_sql_query=0
+" Do not show html-syntax inside php.
+autocmd FileType php let php_htmlInStrings=0
+" Folds functions & methods.
+autocmd FileType php let php_folding=1
+" Use the pman PHP doc so when pressing K on function name open the PHP manual
+" documentation in VIM.
 autocmd FileType php set keywordprg=~/Sites/contrib/pman-php-manual/bin/pman
 
 " Neocomplete plugin
