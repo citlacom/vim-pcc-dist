@@ -125,21 +125,20 @@ if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
 
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-let g:neocomplete#keyword_patterns['php'] = '$\h\w*\%(\[[''"][[:alnum:]_\-#]\+[''"]\]\)*'
-let g:neocomplete#keyword_patterns['php'] = '[[:alnum:]_#\$\-\/%''"\[\]]\+'
+" Only auocomplete variable names.
+"let g:neocomplete#keyword_patterns['php'] = '$\h\w*\%(\[[''"][[:alnum:]_\-#]\+[''"]\]\)*'
 
 " Undo the inserted completion.
-inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-g> neocomplete#undo_completion()
 " When multiples suggestions have common string part, complete until the common
 " part: my_sun, my_moon, my_real will result completing 'my_' common part.
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr><C-l> neocomplete#complete_common_string()
 " Close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 " Close using completion selection.
-inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-y> neocomplete#close_popup()
 " Close canceling the suggested completion.
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><C-e> neocomplete#cancel_popup()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
