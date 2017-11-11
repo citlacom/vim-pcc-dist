@@ -3,22 +3,36 @@
 """"""""""""""""""""""""
 call pathogen#infect()
 
-""""""""""""""""""""""""
-" VIM core configuration
-""""""""""""""""""""""""
+"""""""""""""""""""""""""
+" General custom mappings
+"""""""""""""""""""""""""
 
 map ;z :e ~/.vimrc<CR>
 map ;Z :source ~/.vimrc<CR>
-
+" Exit from insert mode with 'jj'
+imap jj <Esc>
+" Insert => with hh
+imap hh =>
+" Move within tabs easily.
+map <C-pageup> :tabp<cr>
+map <C-pagedown> :tabn<cr>
+" Map F2 to Omni Complete
+imap <C-f2> <c-x><c-o>
+" Toggle invisible chars
+noremap ,i :set list!<CR>
 " Movement for Spanish keyboard
 "noremap ñ l
 "noremap l k
 "noremap k j
 "noremap j h
+
+""""""""""""""""""""""""
+" VIM core configuration
+""""""""""""""""""""""""
+
 lang en_US.UTF-8
 " Determine the OS on os variable.
 let os = substitute(system('uname'), "\n", "", "")
-
 " Enable syntax colors.
 syntax on
 let maplocalleader = ','
@@ -66,6 +80,29 @@ set undofile
 set undodir=/tmp
 " Set font type.
 set guifont=Menlo:h15.00
+" set "make" command when editing php files for syntax validation
+set makeprg=php\ -l\ %
+" Format the make errors.
+set errorformat=%m\ in\ %f\ on\ line\ %l
+" Enable backups.
+set backup
+set backupdir=/tmp
+" Set Swap directory
+set directory=/tmp
+" File Stuff ******************************************************************
+filetype plugin indent on
+" Do not insert a comment leader after an enter.
+set fo-=r
+" Sets what is saved when you save a session
+set sessionoptions=buffers,curdir,folds,help,resize,tabpages,winsize
+" Misc ************************************************************************
+set backspace=indent,eol,start
+" Add <> chat to match pairs.
+set matchpairs+=<:>
+" Configure to 256 colors.
+set t_Co=256
+" Invisible characters.
+set listchars=trail:.,tab:>-,eol:$
 
 " Rezide window to full-screen on GUI mode.
 if has("gui_running")
@@ -93,6 +130,8 @@ autocmd FileType php let php_folding=1
 " Use the pman PHP doc so when pressing K on function name open the PHP manual
 " documentation in VIM.
 autocmd FileType php set keywordprg=~/Sites/contrib/pman-php-manual/bin/pman
+"Enable php completion
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 """"""""""""""""""""""
 " Python configuration
@@ -321,3 +360,15 @@ map l <Plug>(easymotion-lineforward)
 map j <Plug>(easymotion-k)
 map k <Plug>(easymotion-j)
 map h <Plug>(easymotion-linebackward)
+
+"""""""""""""""""""""""""""
+" phpcomplete configuration
+"""""""""""""""""""""""""""
+let g:phpcomplete_cache_taglists = 0
+let g:phpcomplete_enhance_jump_to_definition = 1
+let g:phpcomplete_cache_taglists = 1
+let g:phpcomplete_mappings = {
+      \'jump_to_def': 'zx',
+      \'jump_to_def_split': 'zc',
+      \'jump_to_def_vsplit': 'zv',
+      \}
