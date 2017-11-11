@@ -79,33 +79,17 @@ let g:neocomplete#keyword_patterns['php'] = '[[:alnum:]_#\$\-\/%''"\[\]]\+'
 " Pattern for select PHP multi dimension arrays
 " \$\h\w*\%(\[['"][[:alnum:]_\-#]\+['"]\]\)\+
 
-" Plugin key-mappings.
+" Undo the inserted completion.
 inoremap <expr><C-g>     neocomplete#undo_completion()
+" When multiples suggestions have common string part, complete until the common
+" part: my_sun, my_moon, my_real will result completing 'my_' common part.
 inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
+" Close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close using completion selection.
 inoremap <expr><C-y>  neocomplete#close_popup()
+" Close canceling the suggested completion.
 inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 
 " Shell like behavior(not recommended).
 set completeopt+=longest
