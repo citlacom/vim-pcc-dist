@@ -276,6 +276,6 @@ nmap gw <Plug>(easymotion-overwin-w)
 
 " Line forward / backward movements
 map l <Plug>(easymotion-lineforward)
-map j <Plug>(easymotion-j)
-map k <Plug>(easymotion-k)
+map j <Plug>(easymotion-k)
+map k <Plug>(easymotion-j)
 map h <Plug>(easymotion-linebackward)
