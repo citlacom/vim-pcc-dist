@@ -16,6 +16,8 @@ map ;Z :source ~/.vimrc<CR>
 "noremap k j
 "noremap j h
 lang en_US.UTF-8
+" Determine the OS on os variable.
+let os = substitute(system('uname'), "\n", "", "")
 
 " Enable syntax colors.
 syntax on
@@ -49,6 +51,29 @@ set equalalways
 " By default new window is open above (horizontal split) and left (vertical
 " split) so this switch that behavior to below and right.
 set splitbelow nosplitright
+" Higling cursor line.
+set cursorline
+" Highlight search results.
+set hlsearch
+" Incremental search, search while typing.
+set incsearch
+" Ignore case when searching.
+set ignorecase
+" Ignore case when searching lowercase.
+set smartcase
+" Allow to undo changes even after restart VIM.
+set undofile
+set undodir=/tmp
+" Set font type.
+set guifont=Menlo:h15.00
+
+" Rezide window to full-screen on GUI mode.
+if has("gui_running")
+  " Maximize gvim window.
+  set lines=999 columns=999
+  " Custom colors config file.
+  colors wombat
+endif
 
 """"""""""""""""""""""""""""
 " File types configurations.
