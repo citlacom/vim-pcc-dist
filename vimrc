@@ -9,6 +9,44 @@ map ;Z :source ~/.vimrc<CR>
 "noremap j h
 lang en_US.UTF-8
 
+" Enable syntax colors.
+syntax on
+
+let maplocalleader = ','
+set nocompatible
+set history=200
+set complete=.,w,b,u,t
+
+" Status Line
+set ruler
+set number
+set showcmd
+set ch=2 " Make command line two lines high
+
+" Will produce the tabstop number of spaces.
+set expandtab
+" Number of spaces for expandtab.
+set tabstop=2
+" Number of spaces for the indent operations > <.
+set shiftwidth=4
+" Milliseconds that is waited for a key code or mapped key sequence to
+" complete.
+set timeoutlen=500
+
+" When search is scrolling to the right this is the number of cols to keep
+" visible at the left.
+set sidescrolloff=0
+" When search, number of lines to keep from the top and bottom.
+set scrolloff=10
+" Number of cols for the left lines count.
+set numberwidth=4
+
+" Multiple windows, when created, are equal in size.
+set equalalways
+" By default new window is open above (horizontal split) and left (vertical
+" split) so this switch that behavior to below and right.
+set splitbelow nosplitright
+
 python << EOF
 import os
 import sys
@@ -53,7 +91,6 @@ let g:neocomplete#use_vimproc = 1
 call neocomplete#custom#source('buffer', 'converters',
       \ ['converter_array_dim', 'remove_lead_trail_quotes', 'converter_remove_last_paren', 'converter_remove_overlap'])
 call neocomplete#custom#source('member', 'disabled_filetypes', {'php' : 1})
-
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
