@@ -70,21 +70,31 @@ autocmd FileType php let php_folding=1
 " documentation in VIM.
 autocmd FileType php set keywordprg=~/Sites/contrib/pman-php-manual/bin/pman
 
-" Neocomplete plugin
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
+"""""""""""""""""""""""""""
+" Neocomplete configuration
+"""""""""""""""""""""""""""
+
+" Use neocomplete
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 4
-let g:neocomplete#min_keyword_length = 2
+" General min keyword length for the suggestions.
+let g:neocomplete#min_keyword_length = 5
+" Set minimum syntax sources keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 5
+" Min length of chars written in order to trigger autocomplete.
+let g:neocomplete#auto_completion_start_length = 3
+" Buffer names pattern that neocomplete will not complete automatically.
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Enable fuzzy search of suggestion options match, e.x. public_html or
+" PublicHtml.
 let g:neocomplete#enable_fuzzy_completion = 1
+" File size to make a cache of a file.
 let g:neocomplete#sources#buffer#cache_limit_size = 1000000
-let g:neocomplete#auto_completion_start_length = 2
-let g:neocomplete#sources#buffer#max_keyword_width = 200
-let g:neocomplete#manual_completion_start_length = 0
-let g:neocomplete#max_list = 1000
+" Number of candidates displayed at suggestions popup.
+let g:neocomplete#max_list = 10
+" Ignores the upper and lowercase.
 let g:neocomplete#enable_ignore_case = 1
-let g:neocomplete#enable_smart_case = 0
+" When a capital letter is included in input do not apply ignore case.
+let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#skip_auto_completion_time = 1
 let g:neocomplete#disable_auto_complete = 0
 let g:neocomplete#enable_cursor_hold_i = 0
@@ -114,15 +124,10 @@ let g:neocomplete#delimiter_patterns.php = ['\', '::']
 if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
+
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 let g:neocomplete#keyword_patterns['php'] = '$\h\w*\%(\[[''"][[:alnum:]_\-#]\+[''"]\]\)*'
 let g:neocomplete#keyword_patterns['php'] = '[[:alnum:]_#\$\-\/%''"\[\]]\+'
-"let keyword_patterns = {}
-"let keyword_patterns._ = '\h\w*'
-"let keyword_patterns.php = '[[:alnum:]_\-''"\[\]]\+'
-"call neocomplete#custom#source('buffer', 'keyword_patterns', keyword_patterns)
-" Pattern for select PHP multi dimension arrays
-" \$\h\w*\%(\[['"][[:alnum:]_\-#]\+['"]\]\)\+
 
 " Undo the inserted completion.
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -135,10 +140,6 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 " Close canceling the suggested completion.
 inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" Shell like behavior(not recommended).
-set completeopt+=longest
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -160,13 +161,6 @@ endif
 if !exists('g:neocomplete#sources#member#prefix_patterns')
   let g:neocomplete#sources#member#prefix_patterns = {}
 endif
-
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-"let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Vim Reload plugin
 let g:reload_on_write = 0
