@@ -118,11 +118,22 @@ filetype plugin on
 " PHP type
 "---------
 " Do not show sql-syntax highlighting inside php.
-autocmd FileType php let php_sql_query=0
+"let g:php_sql_query=1
 " Do not show html-syntax inside php.
-autocmd FileType php let php_htmlInStrings=0
-" Folds functions & methods.
-autocmd FileType php let php_folding=1
+"let g:php_htmlInStrings=1
+" Highlighting parent error
+"let g:php_parent_error_close=1
+"let g:php_parent_error_open=1
+" Folds classes and funcions.
+let g:php_folding=0
+" Sync from start
+let g:php_sync_method=0
+" Highlight functions with abnormal behaviour.
+let g:php_special_functions=0
+" Comparison operators in an alternate colour.
+let g:php_alt_comparisons=0
+" References in alternate colour.
+let g:php_alt_assignByReference=0
 " Use the pman PHP doc so when pressing K on function name open the PHP manual
 " documentation in VIM.
 autocmd FileType php set keywordprg=~/Sites/contrib/pman-php-manual/bin/pman
