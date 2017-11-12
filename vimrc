@@ -137,15 +137,17 @@ let g:php_alt_assignByReference=0
 " Use the pman PHP doc so when pressing K on function name open the PHP manual
 " documentation in VIM.
 autocmd FileType php set keywordprg=~/Sites/contrib/pman-php-manual/bin/pman
+" Enable drupal code snippets for PHP files.
+autocmd FileType php UltiSnipsAddFiletypes drupal
 
 augroup php
-  autocmd BufRead,BufNewFile,BufEnter *.inc set filetype=php.drupal
-  autocmd BufRead,BufNewFile,BufEnter *.theme set filetype=php.drupal
-  autocmd BufRead,BufNewFile,BufEnter *.module set filetype=php.drupal
-  autocmd BufRead,BufNewFile,BufEnter *.test set filetype=php
-  autocmd BufRead,BufNewFile,BufEnter *.tpl.php set filetype=html
-  autocmd BufRead,BufNewFile,BufEnter *.install set filetype=php.drupal
-augroup END
+  autocmd bufread,bufnewfile,bufenter *.tpl.php set filetype=html
+  " No more needed, VIM 8 properly auto detects PHP code when start with <?php
+  " tag. Uncomment if you have problems with notn standard PHP file extensions.
+  "autocmd bufread,bufnewfile,bufenter *.install set filetype=php
+  "autocmd bufread,bufnewfile,bufenter *.theme set filetype=php
+  "autocmd bufread,bufnewfile,bufenter *.module set filetype=php
+augroup end
 
 " Set PHP make and error format syntax validation
 autocmd FileType php set makeprg=php\ -l\ %
@@ -325,7 +327,6 @@ nnoremap <silent> [unite]r : <C-u>UniteResume<CR>
 nnoremap <silent> [unite]o : <C-u>Unite outline<CR>
 " List open buffers.
 nnoremap <silent> [unite]b : <C-u>Unite buffer<CR>
-nnoremap <silent> [unite]re : <C-u>Unite -buffer-name=resume resume<CR>
 " List all current buffer lines in a filter mode.
 nnoremap <silent> [unite]li : <C-u>Unite line<CR>
 " List all VIM messages in filter mode.
@@ -354,6 +355,10 @@ nnoremap <silent> [unite]vr : <C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]hc : <C-u>Unite history/command<CR>
 " List last used searches.
 nnoremap <silent> [unite]hs : <C-u>Unite history/search<CR>
+" Go to next unite item on last used source.
+nnoremap <silent> [unite]n : <C-u>UniteNext<CR>
+" Go to previous unite item on last used source.
+nnoremap <silent> [unite]p : <C-u>UnitePrevious<CR>
 " Unite Drupal
 nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
