@@ -80,10 +80,6 @@ set undofile
 set undodir=/tmp
 " Set font type.
 set guifont=Menlo:h15.00
-" set "make" command when editing php files for syntax validation
-set makeprg=php\ -l\ %
-" Format the make errors.
-set errorformat=%m\ in\ %f\ on\ line\ %l
 " Enable backups.
 set backup
 set backupdir=/tmp
@@ -131,7 +127,34 @@ autocmd FileType php let php_folding=1
 " documentation in VIM.
 autocmd FileType php set keywordprg=~/Sites/contrib/pman-php-manual/bin/pman
 
+augroup php
+  autocmd BufRead,BufNewFile,BufEnter *.inc set filetype=php.drupal
+  autocmd BufRead,BufNewFile,BufEnter *.theme set filetype=php.drupal
+  autocmd BufRead,BufNewFile,BufEnter *.module set filetype=php.drupal
+  autocmd BufRead,BufNewFile,BufEnter *.test set filetype=php
+  autocmd BufRead,BufNewFile,BufEnter *.tpl.php set filetype=html
+  autocmd BufRead,BufNewFile,BufEnter *.install set filetype=php.drupal
+augroup END
+
+" Set PHP make and error format syntax validation
+autocmd FileType php set makeprg=php\ -l\ %
+autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
+
+"-----------
+"Python type
+"-----------
+augroup python
+  autocmd BufRead,BufNewFile,BufEnter *.py set filetype=python
+augroup END
+
+" Set make and error format syntax validation
+autocmd FileType python set makeprg=pylint\ -r\ y\ %
+autocmd FileType python set errorformat=%+P[%f],%t:\ %#%l:%m,%Z,%+IYour\ code%m,%Z,%-G%.%#
+
+"""""""""""""""""""""""""""""""
 " Omni Completion configuration
+"""""""""""""""""""""""""""""""
+
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -142,7 +165,7 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 """"""""""""""""""""""
-" Python configuration
+" Python plugins fixes
 """"""""""""""""""""""
 python << EOF
 import os
