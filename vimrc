@@ -20,6 +20,10 @@ map <C-pagedown> :tabn<cr>
 imap <C-f2> <c-x><c-o>
 " Toggle invisible chars
 noremap ,i :set list!<CR>
+" Set the current buffer directory as current directory.
+map ,pb :cd %:h<CR>
+" Set the buffer GIT root as current directory.
+map ,pp :Gcd<CR>
 " Movement for Spanish keyboard
 "noremap ñ l
 "noremap l k
@@ -307,7 +311,19 @@ let g:unite_tig_default_fold = 1
 " Unite Sessions
 let g:unite_source_session_options = "blank,buffers,curdir,folds,help,resize,tabpages,winsize"
 " Limit the number candidates list for file recursive and file recursive async.
-call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 5000)
+call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 500)
+" Congirue 'ag' for search and files list.
+if executable('ag')
+  " Configure ag for rec_async sources to respect the version control ignores
+  " and hidden files.
+  let g:unite_source_rec_async_command =
+        \ ['ag', '--follow', '--skip-vcs-ignores', '--nocolor', '--nogroup', '--ignore', '.hg',
+        \ '--ignore', '.svn', '--ignore', '.git', '--ignore', '.bzr', '-g', '']
+  " Also use ag for files search.
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--column --nogroup --nocolor --follow --skip-vcs-ignores'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 
 "-------------------------------
 " Custom Unite sources mappings.
@@ -321,6 +337,8 @@ nnoremap <silent> [unite]cdf : <C-u>UniteWithCurrentDir -buffer-name=files file<
 nnoremap <silent> [unite]bdf : <C-u>UniteWithBufferDir -buffer-name=files -prompt=%\ file<CR>
 " List directories within the current buffer directory.
 nnoremap <silent> [unite]bdd : <C-u>UniteWithBufferDir -buffer-name=directories -prompt=%\ directories directory<CR>
+" Recursive list on current project directory to search files.
+nnoremap <silent> [unite]e : <C-u>UniteWithProjectDir -start-insert file_rec/async<CR>
 " Resume to the last Unite action.
 nnoremap <silent> [unite]r : <C-u>UniteResume<CR>
 " List a list of current buffer methods, functions and properties.
