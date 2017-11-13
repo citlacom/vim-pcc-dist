@@ -24,11 +24,10 @@ noremap ,i :set list!<CR>
 map ,pb :cd %:h<CR>
 " Set the buffer GIT root as current directory.
 map ,pp :Gcd<CR>
-" Movement for Spanish keyboard
-"noremap ñ l
-"noremap l k
-"noremap k j
-"noremap j h
+" Paste toogle.
+nnoremap ,p :set invpaste paste?<CR>
+set pastetoggle=,p
+set showmode
 
 """"""""""""""""""""""""
 " VIM core configuration
@@ -39,7 +38,11 @@ lang en_US.UTF-8
 let os = substitute(system('uname'), "\n", "", "")
 " Enable syntax colors.
 syntax on
+" Customize leader.
+let mapleader = "´"
+" Customize local leader.
 let maplocalleader = ','
+" No vi compatible.
 set nocompatible
 set history=200
 set complete=.,w,b,u,t
@@ -416,6 +419,8 @@ map l <Plug>(easymotion-lineforward)
 map j <Plug>(easymotion-k)
 map k <Plug>(easymotion-j)
 map h <Plug>(easymotion-linebackward)
+" Movement for Spanish keyboard
+map ñ <Plug>(easymotion-linebackward)
 
 """""""""""""""""""""""""""
 " phpcomplete configuration
@@ -428,3 +433,32 @@ let g:phpcomplete_mappings = {
       \'jump_to_def_split': 'zc',
       \'jump_to_def_vsplit': 'zv',
       \}
+
+""""""""""""""""""""""""""""""""""""
+" PDV PHP Documentator configuration
+""""""""""""""""""""""""""""""""""""
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+" Custom PDV mapping.
+nnoremap ,d :pdv#DocumentWithSnip()<CR>
+
+"""""""""""""""""""""""""""""""""""""""
+" Php Refactoring Toolbox configuration
+"""""""""""""""""""""""""""""""""""""""
+
+" Disable custom mappings.
+let g:vim_php_refactoring_use_default_mapping = 0
+" Customize the refactor function mappings..
+nnoremap <unique> <localleader>rlv : PhpRenameLocalVariable()<CR>
+nnoremap <unique> <localleader>rcv : PhpRenameClassVariable()<CR>
+nnoremap <unique> <localleader>rm : PhpRenameMethod()<CR>
+nnoremap <unique> <localleader>np : PhpCreateProperty()<CR>
+nnoremap <unique> <localleader>du : PhpDetectUnusedUseStatements()<CR>
+vnoremap <unique> <localleader>== : PhpAlignAssigns()<CR>
+nnoremap <unique> <localleader>sg : PhpCreateSettersAndGetters()<CR>
+nnoremap <unique> <localleader>cog : PhpCreateGetters()<CR>
+lnoremap <unique> <localleader>da : PhpDocAll()<CR>
+" First switch paste mode using pastetoggle and run the refactor function.
+nnoremap <unique> <localleader>eu : normal ,p<CR> : PhpExtractUse()<CR>
+vnoremap <unique> <localleader>ec : normal ,p<CR> : PhpExtractConst()<CR>
+nnoremap <unique> <localleader>ep : normal ,p<CR> : PhpExtractClassProperty()<CR>
+vnoremap <unique> <localleader>em : normal ,p<CR> : PhpExtractMethod()<CR>
