@@ -206,7 +206,7 @@ python sys.setdefaultencoding('big5')
 let g:neocomplete#enable_at_startup = 1
 " General min keyword length for the suggestions.
 let g:neocomplete#min_keyword_length = 5
-" Set minimum syntax keyword length for syntax and buffer sources.
+" Set minimum target keyword length for syntax and buffer sources.
 let g:neocomplete#sources#syntax#min_keyword_length = 5
 let g:neocomplete#sources#buffer#min_keyword_length = 5
 " Set a big maximum for buffer for the multi-dimensional array names.
@@ -223,7 +223,7 @@ let g:neocomplete#auto_complete_delay = 250
 " File size to make a cache of a file.
 let g:neocomplete#sources#buffer#cache_limit_size = 100*1024*1024
 " Number of candidates displayed at suggestions popup.
-let g:neocomplete#max_list = 2000
+let g:neocomplete#max_list = 1000
 " Ignores the upper and lowercase.
 let g:neocomplete#enable_ignore_case = 1
 " When a capital letter is included in input do not apply ignore case.
@@ -232,10 +232,15 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#skip_auto_completion_time = 3
 " Ensure autocompletion is not disabled.
 let g:neocomplete#disable_auto_complete = 0
+" Enable camel case candidates match.
+let g:neocomplete#enable_camel_case = 1
 " Select the first candidate element automatically.
 let g:neocomplete#enable_auto_select = 1
-"	Neocomplete refreshes the candidates automatically.
-let g:neocomplete#enable_refresh_always = 1
+" Enable auto-insert delimiter on sources that use delimiters (as files source).
+let g:neocomplete#enable_auto_delimiter = 1
+" If enabled will refresh search results as you type and completion delay
+" exceed, when not enabled just narrow match on existing results.
+let g:neocomplete#enable_refresh_always = 0
 " Will make cache async using vimproc plugin.
 let g:neocomplete#use_vimproc = 1
 
@@ -265,7 +270,9 @@ endif
 
 " Use the specified convertes in that order for buffer words candidates.
 call neocomplete#custom#source('buffer', 'converters', ['converter_array_dim', 'remove_lead_trail_quotes', 'converter_remove_last_paren', 'converter_remove_overlap'])
-let g:neocomplete#delimiter_patterns.php = ['\', '::', '_', '[''', '[', '->']
+" Try to complete methods, namespaces, and multi-dimensional arrays based on
+" context words via converter_delimiter filter.
+let g:neocomplete#delimiter_patterns.php = ['\', '::', '->', '[''', '[']
 " For PHP only auocomplete variable names.
 "let g:neocomplete#keyword_patterns['php'] = '$\h\w*\%(\[[''"][[:alnum:]_\-#]\+[''"]\]\)*'
 " Pattern to find compound multidimensional arrays variables and method
