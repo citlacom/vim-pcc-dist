@@ -27,6 +27,13 @@ map ,pp :Gcd<CR>
 nnoremap ,p :set invpaste paste?<CR>
 set pastetoggle=,p
 set showmode
+" Simplify mappings to on window splits, s(split)dulr(down, up, left, right)
+nnoremap <localleader>sd <C-W><C-J>
+nnoremap <localleader>su <C-W><C-K>
+nnoremap <localleader>sl <C-W><C-K>
+nnoremap <localleader>sr <C-W><C-H>
+" Close all buffers.
+nnoremap <localleader>qb :bufdo bd%<CR>
 
 """"""""""""""""""""""""
 " VIM core configuration
@@ -95,7 +102,7 @@ filetype plugin indent on
 " Do not insert a comment leader after an enter.
 set fo-=r
 " Sets what is saved when you save a session
-set sessionoptions=buffers,curdir,folds,help,resize,tabpages,winsize
+set sessionoptions=buffers,help,resize,tabpages,winsize,winpos
 " Misc ************************************************************************
 set backspace=indent,eol,start
 " Add <> chat to match pairs.
@@ -229,7 +236,7 @@ let g:neocomplete#enable_ignore_case = 1
 " When a capital letter is included in input do not apply ignore case.
 let g:neocomplete#enable_smart_case = 1
 " If completion takes longer than this seconds autocomplete is skip.
-let g:neocomplete#skip_auto_completion_time = 3
+let g:neocomplete#skip_auto_completion_time = 2
 " Ensure autocompletion is not disabled.
 let g:neocomplete#disable_auto_complete = 0
 " Enable camel case candidates match.
@@ -243,6 +250,12 @@ let g:neocomplete#enable_auto_delimiter = 1
 let g:neocomplete#enable_refresh_always = 0
 " Will make cache async using vimproc plugin.
 let g:neocomplete#use_vimproc = 1
+" Expire caches every 1 hour, expressed in seconds.
+let g:neocomplete#release_cache_time = 3600
+" Autoclose preview window automatically.
+let g:neocomplete#enable_auto_close_preview = 1
+" Fallback on omnicomplete if neocomplete do not found candidates.
+let g:neocomplete#fallback_mappings = ["\<C-x>\<C-o>", "\<C-x>\<C-n>"]
 
 " Define dictionaries dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -267,6 +280,10 @@ endif
 if !exists('g:neocomplete#sources#member#prefix_patterns')
     let g:neocomplete#sources#member#prefix_patterns = {}
 endif
+
+" Define PHP prefix patterns for member source that allows methods
+" and properties completion.
+let g:neocomplete#sources#member#prefix_patterns.php = ['->', '::']
 
 " Use the specified convertes in that order for buffer words candidates.
 call neocomplete#custom#source('buffer', 'converters', ['converter_array_dim', 'remove_lead_trail_quotes', 'converter_remove_last_paren', 'converter_remove_overlap'])
@@ -402,6 +419,12 @@ nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
 " List all Unite sources.
 nnoremap [unite]f : <C-u>Unite source<CR>
+
+""""""""""""""""
+" Unite sessions
+""""""""""""""""
+" Things to include in saved session.
+let g:unite_source_session_options = 'buffers,curdir,help,tabpages,winpos,winsize'
 
 """""""""""""""""""
 " Ack configuration
