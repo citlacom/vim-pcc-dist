@@ -496,7 +496,7 @@ nnoremap <localleader>sg : call PhpCreateSettersAndGetters()<CR>
 nnoremap <localleader>cg : call PhpCreateGetters()<CR>
 lnoremap <localleader>da : call PhpDocAll()<CR>
 " First ste mode using pastetoggle and run the refactor function.
-nnoremap <localleader>eu : normal ,p<CR> : PhpExtractUse()<CR>
-vnoremap <localleader>ec : normal ,p<CR> : PhpExtractConst()<CR>
-nnoremap <localleader>ep : normal ,p<CR> : PhpExtractClassProperty()<CR>
-vnoremap <localleader>em : normal ,p<CR> : PhpExtractMethod()<CR>
+nnoremap <localleader>eu : <C-U>set paste\|call PhpExtractUse()\|set nopaste<CR>
+vnoremap <localleader>ec : <C-U>set paste\|call PhpExtractConst()\|set nopaste<CR>
+nnoremap <localleader>ep : <C-U>set paste\|call PhpExtractClassProperty()\|set nopaste<CR>
+vnoremap <localleader>em : <C-U>set paste\|call PhpExtractMethod()\|set nopaste<CR>
