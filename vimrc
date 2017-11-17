@@ -32,8 +32,8 @@ nnoremap <localleader>sd <C-W><C-J>
 nnoremap <localleader>su <C-W><C-K>
 nnoremap <localleader>sl <C-W><C-K>
 nnoremap <localleader>sr <C-W><C-H>
-" Close all buffers.
-nnoremap <localleader>qb :bufdo bd%<CR>
+" Close all buffers (quit all).
+nnoremap <localleader>qa :bufdo bd%<CR>
 
 """"""""""""""""""""""""
 " VIM core configuration
@@ -283,7 +283,7 @@ endif
 
 " Define PHP prefix patterns for member source that allows methods
 " and properties completion.
-let g:neocomplete#sources#member#prefix_patterns.php = ['->', '::']
+let g:neocomplete#sources#member#prefix_patterns.php = '->\|::'
 
 " Use the specified convertes in that order for buffer words candidates.
 call neocomplete#custom#source('buffer', 'converters', ['converter_array_dim', 'remove_lead_trail_quotes', 'converter_remove_last_paren', 'converter_remove_overlap'])
@@ -486,17 +486,17 @@ nnoremap ,d :call pdv#DocumentWithSnip()<CR>
 " Disable custom mappings.
 let g:vim_php_refactoring_use_default_mapping = 0
 " Customize the refactor function mappings..
-nnoremap <unique> <localleader>rlv : PhpRenameLocalVariable()<CR>
-nnoremap <unique> <localleader>rcv : PhpRenameClassVariable()<CR>
-nnoremap <unique> <localleader>rm : PhpRenameMethod()<CR>
-nnoremap <unique> <localleader>np : PhpCreateProperty()<CR>
-nnoremap <unique> <localleader>du : PhpDetectUnusedUseStatements()<CR>
-vnoremap <unique> <localleader>== : PhpAlignAssigns()<CR>
-nnoremap <unique> <localleader>sg : PhpCreateSettersAndGetters()<CR>
-nnoremap <unique> <localleader>cog : PhpCreateGetters()<CR>
-lnoremap <unique> <localleader>da : PhpDocAll()<CR>
-" First switch paste mode using pastetoggle and run the refactor function.
-nnoremap <unique> <localleader>eu : normal ,p<CR> : PhpExtractUse()<CR>
-vnoremap <unique> <localleader>ec : normal ,p<CR> : PhpExtractConst()<CR>
-nnoremap <unique> <localleader>ep : normal ,p<CR> : PhpExtractClassProperty()<CR>
-vnoremap <unique> <localleader>em : normal ,p<CR> : PhpExtractMethod()<CR>
+nnoremap <localleader>lv : call PhpRenameLocalVariable()<CR>
+nnoremap <localleader>cv : call PhpRenameClassVariable()<CR>
+nnoremap <localleader>rm : call PhpRenameMethod()<CR>
+nnoremap <localleader>np : call PhpCreateProperty()<CR>
+nnoremap <localleader>du : call PhpDetectUnusedUseStatements()<CR>
+vnoremap <localleader>== : call PhpAlignAssigns()<CR>
+nnoremap <localleader>sg : call PhpCreateSettersAndGetters()<CR>
+nnoremap <localleader>cg : call PhpCreateGetters()<CR>
+lnoremap <localleader>da : call PhpDocAll()<CR>
+" First ste mode using pastetoggle and run the refactor function.
+nnoremap <localleader>eu : normal ,p<CR> : PhpExtractUse()<CR>
+vnoremap <localleader>ec : normal ,p<CR> : PhpExtractConst()<CR>
+nnoremap <localleader>ep : normal ,p<CR> : PhpExtractClassProperty()<CR>
+vnoremap <localleader>em : normal ,p<CR> : PhpExtractMethod()<CR>
