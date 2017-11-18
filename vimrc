@@ -283,20 +283,23 @@ if !exists('g:neocomplete#sources#member#prefix_patterns')
     let g:neocomplete#sources#member#prefix_patterns = {}
 endif
 
-" Define PHP prefix patterns for member source that allows methods
-" and properties completion.
-let g:neocomplete#sources#member#prefix_patterns.php = '->\|::'
+" Define PHP prefix patterns for member source that allows namespaces,
+" static functions, normal methods and properties and arrays names
+" with YAML IDS formats such ['commands.catalog.data.export']
+let g:neocomplete#sources#member#prefix_patterns.php = '\.\|->\|::\|\\'
 
 " Use the specified convertes in that order for buffer words candidates.
 call neocomplete#custom#source('buffer', 'converters', ['converter_array_dim', 'remove_lead_trail_quotes', 'converter_remove_last_paren', 'converter_remove_overlap'])
-" Try to complete methods, namespaces, and multi-dimensional arrays based on
-" context words via converter_delimiter filter.
-let g:neocomplete#delimiter_patterns.php = ['\', '::', '->', '[''', '[']
+" Delimiters of namespaces, class static functions and methods.
+let g:neocomplete#delimiter_patterns.php = ['\', '::', '->']
 " For PHP only auocomplete variable names.
 "let g:neocomplete#keyword_patterns['php'] = '$\h\w*\%(\[[''"][[:alnum:]_\-#]\+[''"]\]\)*'
 " Pattern to find compound multidimensional arrays variables and method
 " properties on PHP.
-let g:neocomplete#keyword_patterns['php'] = '\h\w*\%\(\[\S*\]\)*'
+"let g:neocomplete#keyword_patterns['php'] = '\h\w*\%\(\[\S*\]\)*'
+" Improved PHP keyword patter able to cover multi-dimensional arrays
+" as: $entity_info['commerce_coupon']['label callback']
+let g:neocomplete#keyword_patterns['php'] = '\h[0-9A-Za-z_\-]*\%\([\[\{][0-9A-Za-z_''"\-\$/% ]*[\]\}]\)*'
 
 "let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 "let g:neocomplete#sources#omni#input_patterns.behat = '\(When\|Then\|Given\|And\)\s.*$'
