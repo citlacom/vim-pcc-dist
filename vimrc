@@ -257,9 +257,11 @@ let g:neocomplete#enable_auto_close_preview = 1
 " Fallback on omnicomplete if neocomplete do not found candidates.
 let g:neocomplete#fallback_mappings = ["\<C-x>\<C-o>", "\<C-x>\<C-n>"]
 
-" Define dictionaries dictionary.
+" Define filetypes complete dictionaries.
 let g:neocomplete#sources#dictionary#dictionaries = {
-      \ }
+    \ 'default' : '',
+    \ 'php' : $HOME.'/.vim/dictionaries/internal_functions_php'
+        \ }
 
 " Define delimiter patterns dictionary.
 if !exists('g:neocomplete#delimiter_patterns')
@@ -311,11 +313,27 @@ inoremap <expr><C-y> neocomplete#close_popup()
 " Close canceling the suggested completion.
 inoremap <expr><C-e> neocomplete#cancel_popup()
 " Enable neocomplete quick match and complete with Unite.
-imap <C-q>  <Plug>(neocomplete_start_unite_quick_match)
-map <C-k>  <Plug>(neocomplete_start_unite_complete)
+imap <C-q> <Plug>(neocomplete_start_unite_quick_match)
+map <C-k> <Plug>(neocomplete_start_unite_complete)
+
+" Make Neocomplete caches mappings.
+"----------------------------------
+" Make the element source cache from current buffer and the element cache from
+" current buffer filetype dictionaries.
+nnoremap <localleader>ne : call neocomplete#sources#member#make_cache_current_buffer() \| call neocomplete#sources#member#remake_cache(&l:filetype)<CR>
+" Make the buffer source cache for current buffer.
+nnoremap <localleader>nb : call neocomplete#sources#buffer#make_cache('')<CR>
+" Make the dictionaries source cache for current buffer filetype.
+nnoremap <localleader>nd : call neocomplete#sources#dictionary#remake_cache(&l:filetype)<CR>
+" Make the tags source cache for current buffer, the tags cache is only
+" enabled in the buffers that have generated the tags cache because in big
+" projects the codebase could have thousands of tags.
+nnoremap <localleader>nt : call neocomplete#sources#tag#make_cache(1)<CR>
+
 " Debug Neocomplete mappings.
-nnoremap <localleader>ni :call neocomplete#init#enable()<CR>
-nnoremap <localleader>ns :PP(neocomplete#variables#get_sources())<CR>
+"----------------------------
+nnoremap <localleader>ndi :call neocomplete#init#enable()<CR>
+nnoremap <localleader>nds :PP(neocomplete#variables#get_sources())<CR>
 "let g:neocomplete#enable_debug=1
 " LUA fix: line = line:gsub("'(%p-)'", "\\'")
 
