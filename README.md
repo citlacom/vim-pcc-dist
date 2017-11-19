@@ -5,11 +5,32 @@ Dependencies
 ============
 
 * [Unite](https://github.com/Shougo/unite.vim)
+* * [Unite colorscheme](https://github.com/ujihisa/unite-colorscheme)
+* * [Unite Grep VCS](https://github.com/lambdalisue/unite-grep-vcs)
 * * [NeoMRU](https://github.com/Shougo/neomru.vim)
 * [Neocomplete](https://github.com/Shougo/neocomplete.vim)
 * * [Neoinclude](https://github.com/Shougo/neoinclude.vim)
+* * [neopairs](https://github.com/Shougo/neopairs.vim)
 * [Fugitive](https://github.com/tpope/vim-fugitive)
+* [PDV - PHP Documentor](https://github.com/tobyS/pdv)
+* [phpcomplete](https://github.com/shawncplus/phpcomplete.vim)
+* [PHP Indenting](https://github.com/2072/PHP-Indenting-for-VIm)
+* [YankRing](https://github.com/vim-scripts/YankRing.vim)
+* [easymotion](https://github.com/easymotion/vim-easymotion)
+* [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+* [scss-syntax](https://github.com/cakebaker/scss-syntax.vim)
+* [splitjoin](https://github.com/AndrewRadev/splitjoin.vim)
+* [airline](https://github.com/vim-airline/vim-airline)
+* [pydoc](https://github.com/fs111/pydoc.vim)
+* [surround](https://github.com/tpope/vim-surround)
+* [tabular](https://github.com/godlygeek/tabular)
+* [ultisnips](https://github.com/SirVer/ultisnips)
+* * [ultisnips-php](https://github.com/algotech/ultisnips-php)
 
+VIM scripts development
+=======================
+
+* [restart.vim](https://github.com/tyru/restart.vim)
 
 Code autocompletion
 ===================
