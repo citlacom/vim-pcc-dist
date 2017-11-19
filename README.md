@@ -39,6 +39,7 @@ Dependencies
 * [surround](https://github.com/tpope/vim-surround)
 * [tabular](https://github.com/godlygeek/tabular)
 * [splitjoin](https://github.com/AndrewRadev/splitjoin.vim)
+* [matchit](https://github.com/adelarsq/vim-matchit)
 
 # Code snippets
 
@@ -53,6 +54,7 @@ Dependencies
 * [PDV - PHP Documentor](https://github.com/tobyS/pdv)
 * [phpcomplete](https://github.com/shawncplus/phpcomplete.vim)
 * [PHP Indenting](https://github.com/2072/PHP-Indenting-for-VIm)
+* [PHP Refactoring Toolbox](https://github.com/adoy/vim-php-refactoring-toolbox)
 * [Behat](https://github.com/veloce/vim-behat)
 * [ultisnips-php](https://github.com/algotech/ultisnips-php)
 
@@ -77,6 +79,7 @@ Dependencies
 # VIM scripts development
 
 * [restart.vim](https://github.com/tyru/restart.vim)
+* [VIM Misc](https://github.com/xolox/vim-misc)
 
 Code autocompletion
 ===================
