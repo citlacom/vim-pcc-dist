@@ -4,31 +4,77 @@ Custom vim distribution oriented to PHP and Python development.
 Dependencies
 ============
 
+# Files and data exploration
+
 * [Unite](https://github.com/Shougo/unite.vim)
-* * [Unite colorscheme](https://github.com/ujihisa/unite-colorscheme)
-* * [Unite Grep VCS](https://github.com/lambdalisue/unite-grep-vcs)
-* * [NeoMRU](https://github.com/Shougo/neomru.vim)
+* [Unite colorscheme](https://github.com/ujihisa/unite-colorscheme)
+* [Unite Grep VCS](https://github.com/lambdalisue/unite-grep-vcs)
+* [Unite colorscheme](https://github.com/ujihisa/unite-colorscheme)
+* [Unite Outline](https://github.com/Shougo/unite-outline)
+* [Unite Session](https://github.com/Shougo/unite-session)
+* [Unite Settings](https://github.com/YamasakiKenta/unite-setting.vim)
+* [Unite Tag](https://github.com/tsukkee/unite-tag)
+* [Unite Tasklist](https://github.com/junkblocker/unite-tasklist)
+* [NeoMRU](https://github.com/Shougo/neomru.vim)
+
+# Code auto-completion
+
 * [Neocomplete](https://github.com/Shougo/neocomplete.vim)
-* * [Neoinclude](https://github.com/Shougo/neoinclude.vim)
-* * [neopairs](https://github.com/Shougo/neopairs.vim)
+* [Neoinclude](https://github.com/Shougo/neoinclude.vim)
+* [neopairs](https://github.com/Shougo/neopairs.vim)
+
+# Git integration
+
 * [Fugitive](https://github.com/tpope/vim-fugitive)
+* [Git Gutter](https://github.com/airblade/vim-gitgutter)
+
+# Copy / Paste record and historical list
+
+* [YankRing](https://github.com/vim-scripts/YankRing.vim)
+
+# Fast movement, manipulation and insertion
+
+* [easymotion](https://github.com/easymotion/vim-easymotion)
+* [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+* [surround](https://github.com/tpope/vim-surround)
+* [tabular](https://github.com/godlygeek/tabular)
+* [splitjoin](https://github.com/AndrewRadev/splitjoin.vim)
+
+# Code snippets
+
+* [ultisnips](https://github.com/SirVer/ultisnips)
+
+# SASS development
+
+* [scss-syntax](https://github.com/cakebaker/scss-syntax.vim)
+
+# PHP development
+
 * [PDV - PHP Documentor](https://github.com/tobyS/pdv)
 * [phpcomplete](https://github.com/shawncplus/phpcomplete.vim)
 * [PHP Indenting](https://github.com/2072/PHP-Indenting-for-VIm)
-* [YankRing](https://github.com/vim-scripts/YankRing.vim)
-* [easymotion](https://github.com/easymotion/vim-easymotion)
-* [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-* [scss-syntax](https://github.com/cakebaker/scss-syntax.vim)
-* [splitjoin](https://github.com/AndrewRadev/splitjoin.vim)
-* [airline](https://github.com/vim-airline/vim-airline)
-* [pydoc](https://github.com/fs111/pydoc.vim)
-* [surround](https://github.com/tpope/vim-surround)
-* [tabular](https://github.com/godlygeek/tabular)
-* [ultisnips](https://github.com/SirVer/ultisnips)
-* * [ultisnips-php](https://github.com/algotech/ultisnips-php)
+* [Behat](https://github.com/veloce/vim-behat)
+* [ultisnips-php](https://github.com/algotech/ultisnips-php)
 
-VIM scripts development
-=======================
+# Python development
+
+* [pydoc](https://github.com/fs111/pydoc.vim)
+* [Indent Object](https://github.com/michaeljsmith/vim-indent-object)
+
+# Colors and status line customization
+
+* [Color Schemes Collection](https://github.com/citlacom/vim-colors-collection)
+* [airline](https://github.com/vim-airline/vim-airline)
+
+# Drupal develoment
+
+* [Drupal Snippets](https://github.com/dsdeiz/vim-drupal-snippets.git)
+
+# Arduino development
+
+* [Arduino](https://github.com/stevearc/vim-arduino)
+
+# VIM scripts development
 
 * [restart.vim](https://github.com/tyru/restart.vim)
 
