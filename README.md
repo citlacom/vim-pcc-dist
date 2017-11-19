@@ -5,9 +5,9 @@ Dependencies
 ============
 
 * [Unite](https://github.com/Shougo/unite.vim)
-** [NeoMRU](https://github.com/Shougo/neomru.vim)
+* * [NeoMRU](https://github.com/Shougo/neomru.vim)
 * [Neocomplete](https://github.com/Shougo/neocomplete.vim)
-** [Neoinclude](https://github.com/Shougo/neoinclude.vim)
+* * [Neoinclude](https://github.com/Shougo/neoinclude.vim)
 * [Fugitive](https://github.com/tpope/vim-fugitive)
 
 
