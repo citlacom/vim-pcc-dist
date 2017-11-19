@@ -263,17 +263,6 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'php' : $HOME.'/.vim/dictionaries/internal_functions_php'
         \ }
 
-" Dyamically set dictionary by project repository so you can generate more
-" customized dictionaries for different PHP versions or pojects like Drupal 7,
-" Drupal 8, Symfony, etc.
-" let project_root = fnamemodify(fugitive#extract_git_dir(expand('%:p')), ':h')
-" let dictionaries = globpath(project_root . '/.dictionaries', '*')
-" call neocomplete#util#set_default_dictionary('g:neocomplete#sources#dictionary#dictionaries', 'php', '')
-" unlet g:neocomplete#sources#dictionary#dictionaries.php
-" call neocomplete#set_dictionary_helper(g:neocomplete#sources#dictionary#dictionaries, 'php', dictionaries)
-" Check added dictionaries.
-" call neocomplete#sources#dictionary#get_dictionaries(a:filetype)
-
 " Define delimiter patterns dictionary.
 if !exists('g:neocomplete#delimiter_patterns')
     let g:neocomplete#delimiter_patterns= {}
