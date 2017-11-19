@@ -323,15 +323,18 @@ map <C-k> <Plug>(neocomplete_start_unite_complete)
 "----------------------------------
 " Make the element source cache from current buffer and the element cache from
 " current buffer filetype dictionaries.
-nnoremap <localleader>ne : call neocomplete#sources#member#make_cache_current_buffer() \| call neocomplete#sources#member#remake_cache(&l:filetype)<CR>
+nnoremap <localleader>ce : call neocomplete#sources#member#make_cache_current_buffer() \| call neocomplete#sources#member#remake_cache(&l:filetype)<CR>
 " Make the buffer source cache for current buffer.
-nnoremap <localleader>nb : call neocomplete#sources#buffer#make_cache('')<CR>
+nnoremap <localleader>cb : call neocomplete#sources#buffer#make_cache('')<CR>
 " Make the dictionaries source cache for current buffer filetype.
-nnoremap <localleader>nd : call neocomplete#sources#dictionary#remake_cache(&l:filetype)<CR>
+nnoremap <localleader>cd : call neocomplete#sources#dictionary#remake_cache(&l:filetype)<CR>
 " Make the tags source cache for current buffer, the tags cache is only
 " enabled in the buffers that have generated the tags cache because in big
 " projects the codebase could have thousands of tags.
-nnoremap <localleader>nt : call neocomplete#sources#tag#make_cache(1)<CR>
+nnoremap <localleader>ct : call neocomplete#sources#tag#make_cache(1)<CR>
+" Switch to buffer project custom dictionaries that could be generated
+" to list project specific functions, classes, namespaces, etc.
+nnoremap <localleader>cp : NeoCompleteCustomProjectDictionaries<CR>
 
 " Debug Neocomplete mappings.
 "----------------------------
