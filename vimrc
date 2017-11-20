@@ -409,7 +409,11 @@ nnoremap <silent> [unite]o : <C-u>Unite outline<CR>
 " List open buffers.
 nnoremap <silent> [unite]h : <C-u>Unite buffer<CR>
 " List all current buffer lines in a filter mode.
-nnoremap <silent> [unite]l : <C-u>Unite line<CR>
+nnoremap <silent> [unite]la : <C-u>Unite line<CR>
+" List all current buffer lines with cursor word.
+nnoremap <silent> [unite]lw : <C-u>UniteWithCursorWord line<CR>
+" Start Unite line command with customizable input keyword.
+nnoremap <silent> [unite]li : <C-u>UniteWithInput line<CR>
 " List all VIM messages in filter mode.
 nnoremap <silent> [unite]m : <C-u>Unite output:message<CR>
 " List the buffer line changes in filter mode.
@@ -435,11 +439,11 @@ nnoremap <silent> [unite]hc : <C-u>Unite history/command<CR>
 " List last used searches.
 nnoremap <silent> [unite]hs : <C-u>Unite history/search<CR>
 " Go to next used source result item.
-nnoremap <silent> [unite]sn : <C-u>UniteNext<CR>
+nnoremap <silent> [unite]gn : <C-u>UniteNext<CR>
 " Go to previous used source result item.
-nnoremap <silent> [unite]sp : <C-u>UnitePrevious<CR>
+nnoremap <silent> [unite]gp : <C-u>UnitePrevious<CR>
 " Start a unite do action for current source items.
-nnoremap <silent> [unite]sd : <C-u>UniteDo
+nnoremap <silent> [unite]gd : <C-u>UniteDo
 " Unite Drupal
 nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
