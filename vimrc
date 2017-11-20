@@ -393,51 +393,53 @@ endif
 nnoremap [unite] <Nop>
 nmap f [unite]
 " List files within the current directory.
-nnoremap <silent> [unite]cdf : <C-u>UniteWithCurrentDir -buffer-name=files file<CR>
-" List files within the current buffer directory.
-nnoremap <silent> [unite]bdf : <C-u>UniteWithBufferDir -buffer-name=files -prompt=%\ file<CR>
-" List directories within the current buffer directory.
-nnoremap <silent> [unite]bdd : <C-u>UniteWithBufferDir -buffer-name=directories -prompt=%\ directories directory<CR>
+nnoremap <silent> [unite]ed : <C-u>UniteWithCurrentDir -buffer-name=files file<CR>
 " Recursive list on current project directory to search files.
-nnoremap <silent> [unite]e : <C-u>UniteWithProjectDir -start-insert file_rec/async<CR>
+nnoremap <silent> [unite]ep : <C-u>UniteWithProjectDir -start-insert file_rec/async<CR>
+" List files within the current buffer directory.
+nnoremap <silent> [unite]bf : <C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" List directories within the current buffer directory.
+nnoremap <silent> [unite]bd : <C-u>UniteWithBufferDir directories directory<CR>
+" List task list buffer tasks: TODO, FIXME, etc.
+nnoremap <silent> [unite]bt : <C-u>Unite tasklist<CR>
 " Resume to the last Unite action.
 nnoremap <silent> [unite]r : <C-u>UniteResume<CR>
 " List a list of current buffer methods, functions and properties.
 nnoremap <silent> [unite]o : <C-u>Unite outline<CR>
 " List open buffers.
-nnoremap <silent> [unite]b : <C-u>Unite buffer<CR>
+nnoremap <silent> [unite]h : <C-u>Unite buffer<CR>
 " List all current buffer lines in a filter mode.
-nnoremap <silent> [unite]li : <C-u>Unite line<CR>
+nnoremap <silent> [unite]l : <C-u>Unite line<CR>
 " List all VIM messages in filter mode.
-nnoremap <silent> [unite]me : <C-u>Unite output:message<CR>
+nnoremap <silent> [unite]m : <C-u>Unite output:message<CR>
 " List the buffer line changes in filter mode.
-nnoremap <silent> [unite]ch : <C-u>Unite change<CR>
+nnoremap <silent> [unite]c : <C-u>Unite change<CR>
 " List the cursor jumps.
-nnoremap <silent> [unite]ju : <C-u>Unite jump<CR>
+nnoremap <silent> [unite]j : <C-u>Unite jump<CR>
 " List the quick fix list.
-nnoremap <silent> [unite]qf : <C-u>Unite qf<CR>
-" List current buffer ctags.
-nnoremap <silent> [unite]ct : <C-u>Unite ctags<CR>
+nnoremap <silent> [unite]q : <C-u>Unite qf<CR>
+" List project tags.
+nnoremap <silent> [unite]tl : <C-u>Unite tag<CR>
 " List current buffer ctags filtering by cursor word.
-nnoremap <silent> [unite]wt : <C-u>UniteWithCursorWord ctags<CR>
+nnoremap <silent> [unite]tw : <C-u>UniteWithCursorWord tag<CR>
 " List most recent used files.
-nnoremap <silent> [unite]mf : <C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]uf : <C-u>Unite file_mru<CR>
 " List most recent used directories.
-nnoremap <silent> [unite]md : <C-u>Unite directory_mru<CR>
-" List task list of TODO, FIXME, etc.
-nnoremap <silent> [unite]tl : <C-u>Unite tasklist<CR>
+nnoremap <silent> [unite]ud : <C-u>Unite directory_mru<CR>
 " List all VIM mappings.
 nnoremap <silent> [unite]vm : <C-u>Unite mapping<CR>
 " List all VIM registers.
-nnoremap <silent> [unite]vr : <C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]p : <C-u>Unite -buffer-name=register register<CR>
 " List last used VIM commands.
 nnoremap <silent> [unite]hc : <C-u>Unite history/command<CR>
 " List last used searches.
 nnoremap <silent> [unite]hs : <C-u>Unite history/search<CR>
-" Go to next unite item on last used source.
-nnoremap <silent> [unite]n : <C-u>UniteNext<CR>
-" Go to previous unite item on last used source.
-nnoremap <silent> [unite]p : <C-u>UnitePrevious<CR>
+" Go to next used source result item.
+nnoremap <silent> [unite]sn : <C-u>UniteNext<CR>
+" Go to previous used source result item.
+nnoremap <silent> [unite]sp : <C-u>UnitePrevious<CR>
+" Start a unite do action for current source items.
+nnoremap <silent> [unite]sd : <C-u>UniteDo
 " Unite Drupal
 nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
