@@ -3,38 +3,6 @@
 """"""""""""""""""""""""
 call pathogen#infect()
 
-"""""""""""""""""""""""""
-" General custom mappings
-"""""""""""""""""""""""""
-map ;z :e ~/.vimrc<CR>
-map ;Z :source ~/.vimrc<CR>
-" Exit from insert mode with 'jj'
-imap jj <Esc>
-" Insert => with hh
-imap hh =>
-" Move within tabs easily.
-map <C-pageup> :tabp<cr>
-map <C-pagedown> :tabn<cr>
-" Map F2 to Omni Complete
-imap <C-f2> <c-x><c-o>
-" Toggle invisible chars
-noremap ,i :set list!<CR>
-" Set the current buffer directory as current directory.
-map ,pb :cd %:h<CR>
-" Set the buffer GIT root as current directory.
-map ,pp :Gcd<CR>
-" Paste toogle.
-nnoremap ,p :set invpaste paste?<CR>
-set pastetoggle=,p
-set showmode
-" Simplify mappings to on window splits, s(split)dulr(down, up, left, right)
-nnoremap <localleader>sd <C-W><C-J>
-nnoremap <localleader>su <C-W><C-K>
-nnoremap <localleader>sl <C-W><C-K>
-nnoremap <localleader>sr <C-W><C-H>
-" Close all buffers (quit all).
-nnoremap <localleader>qa :bufdo bd%<CR>
-
 """"""""""""""""""""""""
 " VIM core configuration
 """"""""""""""""""""""""
@@ -119,6 +87,38 @@ if has("gui_running")
   " Custom colors config file.
   colors wombat
 endif
+
+"""""""""""""""""""""""""
+" General custom mappings
+"""""""""""""""""""""""""
+map ;z :e ~/.vimrc<CR>
+map ;Z :source ~/.vimrc<CR>
+" Exit from insert mode with 'jj'
+imap jj <Esc>
+" Insert => with hh
+imap hh =>
+" Move within tabs easily.
+map <C-pageup> :tabp<cr>
+map <C-pagedown> :tabn<cr>
+" Map F2 to Omni Complete
+imap <C-f2> <c-x><c-o>
+" Toggle invisible chars
+noremap <localleader>i :set list!<CR>
+" Set the current buffer directory as current directory.
+map <localleader>pb :cd %:h<CR>
+" Set the buffer GIT root as current directory.
+map <localleader>pp :Gcd<CR>
+" Paste toogle.
+nnoremap <localleader>p :set invpaste paste?<CR>
+set pastetoggle=<localleader>p
+set showmode
+" Simplify mappings to on window splits, s(split)dulr(down, up, left, right)
+nnoremap <localleader>sd <C-W><C-J>
+nnoremap <localleader>su <C-W><C-K>
+nnoremap <localleader>sl <C-W><C-K>
+nnoremap <localleader>sr <C-W><C-H>
+" Close all buffers (quit all).
+nnoremap <localleader>qa :bufdo bd%<CR>
 
 """"""""""""""""""""""""""""
 " File types configurations.
