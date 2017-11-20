@@ -26,13 +26,14 @@ Dependencies
 # Git integration
 
 * [Fugitive](https://github.com/tpope/vim-fugitive)
+* [Fugitive Github](https://github.com/tpope/vim-rhubarb)
 * [Git Gutter](https://github.com/airblade/vim-gitgutter)
 
 # Copy / Paste record and historical list
 
 * [YankRing](https://github.com/vim-scripts/YankRing.vim)
 
-# Fast movement, manipulation and insertion
+# Fast movement, manipulation, repetition and insertion
 
 * [easymotion](https://github.com/easymotion/vim-easymotion)
 * [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
@@ -40,10 +41,17 @@ Dependencies
 * [tabular](https://github.com/godlygeek/tabular)
 * [splitjoin](https://github.com/AndrewRadev/splitjoin.vim)
 * [matchit](https://github.com/adelarsq/vim-matchit)
+* [qfreplace](https://github.com/thinca/vim-qfreplace)
+* [repeat](https://github.com/tpope/vim-repeat)
+* [unimpaired](https://github.com/tpope/vim-unimpaired)
 
 # Code snippets
 
 * [ultisnips](https://github.com/SirVer/ultisnips)
+* [Snippets Mixed Languages](https://github.com/honza/vim-snippets)
+* [Snippets Drupal](https://github.com/dsdeiz/vim-drupal-snippets.git)
+* [Snippets PHP](https://github.com/algotech/ultisnips-php)
+* [Snippets React](https://github.com/epilande/vim-react-snippets)
 
 # SASS development
 
@@ -56,7 +64,7 @@ Dependencies
 * [PHP Indenting](https://github.com/2072/PHP-Indenting-for-VIm)
 * [PHP Refactoring Toolbox](https://github.com/adoy/vim-php-refactoring-toolbox)
 * [Behat](https://github.com/veloce/vim-behat)
-* [ultisnips-php](https://github.com/algotech/ultisnips-php)
+* [Twig](https://github.com/lumiliet/vim-twig)
 
 # Python development
 
@@ -68,10 +76,6 @@ Dependencies
 * [Color Schemes Collection](https://github.com/citlacom/vim-colors-collection)
 * [airline](https://github.com/vim-airline/vim-airline)
 
-# Drupal develoment
-
-* [Drupal Snippets](https://github.com/dsdeiz/vim-drupal-snippets.git)
-
 # Arduino development
 
 * [Arduino](https://github.com/stevearc/vim-arduino)
@@ -80,6 +84,9 @@ Dependencies
 
 * [restart.vim](https://github.com/tyru/restart.vim)
 * [VIM Misc](https://github.com/xolox/vim-misc)
+* [PrettyPrint](https://github.com/thinca/vim-prettyprint)
+* [Reload](https://github.com/xolox/vim-reload)
+* [Scriptease](https://github.com/tpope/vim-scriptease)
 
 Code autocompletion
 ===================
