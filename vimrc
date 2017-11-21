@@ -429,6 +429,8 @@ nnoremap <silent> [unite]q : <C-u>Unite qf<CR>
 nnoremap <silent> [unite]tl : <C-u>Unite tag<CR>
 " List current buffer ctags filtering by cursor word.
 nnoremap <silent> [unite]tw : <C-u>UniteWithCursorWord tag<CR>
+" List ctags filtered by customizable input keyword.
+nnoremap <silent> [unite]ti : <C-u>UniteWithInput tag<CR>
 " List most recent used files.
 nnoremap <silent> [unite]uf : <C-u>Unite file_mru<CR>
 " List most recent used directories.
