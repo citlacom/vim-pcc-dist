@@ -530,3 +530,7 @@ nnoremap <localleader>eu : <C-U>set paste\|call PhpExtractUse()\|set nopaste<CR>
 vnoremap <localleader>ec : <C-U>set paste\|call PhpExtractConst()\|set nopaste<CR>
 nnoremap <localleader>ep : <C-U>set paste\|call PhpExtractClassProperty()\|set nopaste<CR>
 vnoremap <localleader>em : <C-U>set paste\|call PhpExtractMethod()\|set nopaste<CR>
+
+" Pretty Formatting mappings
+nnoremap <localleader>px : 1,$!tidy -i -xml 2>/dev/null
+nnoremap <localleader>ph : 1,$!tidy -i -html 2>/dev/null
