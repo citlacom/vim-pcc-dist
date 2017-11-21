@@ -35,7 +35,7 @@ function! DrupalContainerExecute()
   let s:project_git_dir = fugitive#extract_git_dir(expand('%:p'))
   let s:project_root = fnamemodify(s:project_git_dir, ':h')
   if s:project_git_dir != ''
-  let command = s:project_root . '/vendor/bin/drupal debug:container'
+  let command = s:project_root . '/vendor/bin/drupal debug:container | perl -lane ''print "$F[0]\tUnite tag -input=$F[1]"'''
   echo system(command)
 endif
 endfunction
