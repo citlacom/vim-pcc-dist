@@ -119,6 +119,9 @@ nnoremap <localleader>sl <C-W><C-K>
 nnoremap <localleader>sr <C-W><C-H>
 " Close all buffers (quit all).
 nnoremap <localleader>qa :bufdo bd%<CR>
+" Pretty Formatting mappings
+nnoremap <localleader>px : 1,$!tidy -i -xml 2>/dev/null
+nnoremap <localleader>ph : 1,$!tidy -i -html 2>/dev/null
 
 """"""""""""""""""""""""""""
 " File types configurations.
@@ -531,6 +534,15 @@ vnoremap <localleader>ec : <C-U>set paste\|call PhpExtractConst()\|set nopaste<C
 nnoremap <localleader>ep : <C-U>set paste\|call PhpExtractClassProperty()\|set nopaste<CR>
 vnoremap <localleader>em : <C-U>set paste\|call PhpExtractMethod()\|set nopaste<CR>
 
-" Pretty Formatting mappings
-nnoremap <localleader>px : 1,$!tidy -i -xml 2>/dev/null
-nnoremap <localleader>ph : 1,$!tidy -i -html 2>/dev/null
+"""""""""""""""""""""""""
+" UltiSnips configuration
+"""""""""""""""""""""""""
+" Expand the snippet with when hit tab.
+let g:UltiSnipsExpandTrigger="<tab>"
+" Move within the snippets popup with control-k and control-j.
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+" Open the snippets custom language edit file in horizontal buffer.
+let g:UltiSnipsEditSplit="horizontal"
+" Custom mapping to open snippets edit buffer.
+nnoremap <localleader>se : UltiSnipsEdit<CR>
