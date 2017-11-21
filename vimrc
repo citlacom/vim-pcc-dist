@@ -67,8 +67,8 @@ set backupdir=/tmp
 set directory=/tmp
 " File Stuff ******************************************************************
 filetype plugin indent on
-" Do not insert a comment leader after an enter.
-set fo-=r
+" Do not insert a comment leader after an enter or new below line o.
+" set formatoptions-=ro
 " Sets what is saved when you save a session
 set sessionoptions=buffers,help,resize,tabpages,winsize,winpos
 " Misc ************************************************************************
@@ -529,10 +529,10 @@ nnoremap <localleader>sg : call PhpCreateSettersAndGetters()<CR>
 nnoremap <localleader>cg : call PhpCreateGetters()<CR>
 lnoremap <localleader>da : call PhpDocAll()<CR>
 " First ste mode using pastetoggle and run the refactor function.
-nnoremap <localleader>eu : <C-U>set paste\|call PhpExtractUse()\|set nopaste<CR>
-vnoremap <localleader>ec : <C-U>set paste\|call PhpExtractConst()\|set nopaste<CR>
-nnoremap <localleader>ep : <C-U>set paste\|call PhpExtractClassProperty()\|set nopaste<CR>
-vnoremap <localleader>em : <C-U>set paste\|call PhpExtractMethod()\|set nopaste<CR>
+nnoremap <localleader>eu : <C-U>set formatoptions-=ro\|call PhpExtractUse()\|set formatoptions+=ro<CR>
+vnoremap <localleader>ec : <C-U>set formatoptions-=ro\|call PhpExtractConst()\|set formatoptions+=ro<CR>
+nnoremap <localleader>ep : <C-U>set formatoptions-=ro\|call PhpExtractClassProperty()\|set formatoptions+=ro<CR>
+vnoremap <localleader>em : <C-U>set formatoptions-=ro\|call PhpExtractMethod()\|set formatoptions+=ro<CR>
 
 """""""""""""""""""""""""
 " UltiSnips configuration
