@@ -452,6 +452,7 @@ nnoremap <silent> [unite]gd : <C-u>UniteDo
 " Unite Drupal
 nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
+nnoremap <silent> [unite]ds : <C-u>Unite output:DrupalContainer<CR>
 " List all Unite sources.
 nnoremap [unite]f : <C-u>Unite source<CR>
 

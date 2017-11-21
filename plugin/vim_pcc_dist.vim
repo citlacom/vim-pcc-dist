@@ -30,5 +30,17 @@ function! NeocompleteConfigureCustomProjectDictionaries()
 endfunction
 command! NeoCompleteCustomProjectDictionaries call NeocompleteConfigureCustomProjectDictionaries()
 
+" Get the Drupal container services list.
+function! DrupalContainerExecute()
+  let s:project_git_dir = fugitive#extract_git_dir(expand('%:p'))
+  let s:project_root = fnamemodify(s:project_git_dir, ':h')
+  if s:project_git_dir != ''
+  let command = s:project_root . '/vendor/bin/drupal debug:container'
+  echo system(command)
+endif
+endfunction
+
+command! DrupalContainer call DrupalContainerExecute()
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
