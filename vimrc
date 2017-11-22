@@ -376,17 +376,46 @@ let g:unite_tig_default_fold = 1
 let g:unite_source_session_options = "blank,buffers,curdir,folds,help,resize,tabpages,winsize"
 " Limit the number candidates list for file recursive and file recursive async.
 call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 500)
-" Congirue 'ag' for search and files list.
-if executable('ag')
-  " Configure ag for rec_async sources to respect the version control ignores
-  " and hidden files.
-  let g:unite_source_rec_async_command =
-        \ ['ag', '--follow', '--skip-vcs-ignores', '--nocolor', '--nogroup', '--ignore', '.hg',
-        \ '--ignore', '.svn', '--ignore', '.git', '--ignore', '.bzr', '-g', '']
-  " Also use ag for files search.
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--column --nogroup --nocolor --follow --skip-vcs-ignores'
-  let g:unite_source_grep_recursive_opt = ''
+
+" Configure the grep tool based on availability and speed performance.
+if executable('hw')
+    " Use hw (highway)
+    " https://github.com/tkengo/highway
+    let g:unite_source_grep_command = 'hw'
+    let g:unite_source_grep_default_opts = '--no-group --no-color'
+    let g:unite_source_grep_recursive_opt = ''
+elseif executable('ag')
+    " Use ag (the silver searcher)
+    " https://github.com/ggreer/the_silver_searcher
+    let g:unite_source_grep_command = 'ag'
+    "let g:unite_source_grep_default_opts = '--column --nogroup --nocolor --follow --skip-vcs-ignores'
+    let g:unite_source_grep_default_opts =
+                \ '-i --vimgrep --hidden --ignore ' .
+                \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+    let g:unite_source_grep_recursive_opt = ''
+    " Use ag for rec_async with ignore of VCS rules and hidden files.
+    let g:unite_source_rec_async_command =
+                \ ['ag', '--follow', '--skip-vcs-ignores', '--nocolor', '--nogroup', '--ignore', '.hg',
+                \ '--ignore', '.svn', '--ignore', '.git', '--ignore', '.bzr', '-g', '']
+elseif executable('ack-grep')
+    " Use ack
+    " http://beyondgrep.com/
+    let g:unite_source_grep_command = 'ack-grep'
+    let g:unite_source_grep_default_opts =
+                \ '-i --no-heading --no-color -k -H'
+    let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack')
+    let g:unite_source_grep_command = 'ack'
+    let g:unite_source_grep_default_opts = '--no-heading --no-color'
+    let g:unite_source_grep_recursive_opt = '-r'
+    "let g:unite_source_grep_default_opts = '-iRHn'
+elseif executable('jvgrep')
+    " Use jvgrep
+    " https://github.com/mattn/jvgrep
+    let g:unite_source_grep_command = 'jvgrep'
+    let g:unite_source_grep_default_opts =
+                \ '-i --exclude ''\.(git|svn|hg|bzr)'''
+    let g:unite_source_grep_recursive_opt = '-R'
 endif
 
 "-------------------------------
@@ -449,6 +478,8 @@ nnoremap <silent> [unite]gn : <C-u>UniteNext<CR>
 nnoremap <silent> [unite]gp : <C-u>UnitePrevious<CR>
 " Start a unite do action for current source items.
 nnoremap <silent> [unite]gd : <C-u>UniteDo
+" Start a Unite grep search.
+nnoremap <silent> [unite]gg : <C-u>Unite grep<CR>
 " Unite Drupal
 nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
@@ -461,16 +492,6 @@ nnoremap [unite]f : <C-u>Unite source<CR>
 """"""""""""""""
 " Things to include in saved session.
 let g:unite_source_session_options = 'buffers,curdir,help,tabpages,winpos,winsize'
-
-"""""""""""""""""""
-" Ack configuration
-"""""""""""""""""""
-if executable('ack')
-    let g:unite_source_grep_command = 'ack'
-    let g:unite_source_grep_default_opts = '--no-heading --no-color'
-    "let g:unite_source_grep_recursive_opt = ''
-    "let g:unite_source_grep_default_opts = '-iRHn'
-endif
 
 """""""""""""""""""""""""""
 " Easy Motion configuration
@@ -549,3 +570,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 let g:UltiSnipsEditSplit="horizontal"
 " Custom mapping to open snippets edit buffer.
 nnoremap <localleader>se : UltiSnipsEdit<CR>
+
+"""""""""""""""""""""""
+" Ariline configuration
+"""""""""""""""""""""""
+let g:airline#extensions#tabline#fnamemod = ':p:~'
+let g:airline#extensions#tabline#fnamecollapse = 1
+
+function! AirlineInit()
+    " Show current directory under section_b, useful when running grep.
+    let g:airline_section_b = airline#section#create(['%{getcwd()}'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
