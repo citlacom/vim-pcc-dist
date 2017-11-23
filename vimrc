@@ -122,7 +122,7 @@ nnoremap <localleader>qa :bufdo bd%<CR>
 " Pretty Formatting mappings
 nnoremap <localleader>px : 1,$!tidy -i -xml 2>/dev/null
 nnoremap <localleader>ph : 1,$!tidy -i -html 2>/dev/null
-
+nnoremap <localleader>pj : 1,$!python -m json.tool 2>/dev/null
 """"""""""""""""""""""""""""
 " File types configurations.
 """"""""""""""""""""""""""""
