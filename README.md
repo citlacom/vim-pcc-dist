@@ -4,6 +4,10 @@ Custom vim distribution oriented to PHP and Python development.
 Dependencies
 ============
 
+# Code styling
+
+* [EditorConfig](https://github.com/editorconfig/editorconfig-vim)
+
 # Files and data exploration
 
 * [Unite](https://github.com/Shougo/unite.vim)
@@ -45,6 +49,11 @@ Dependencies
 * [repeat](https://github.com/tpope/vim-repeat)
 * [unimpaired](https://github.com/tpope/vim-unimpaired)
 
+# Colors and status line customization
+
+* [Color Schemes Collection](https://github.com/citlacom/vim-colors-collection)
+* [airline](https://github.com/vim-airline/vim-airline)
+
 # Code snippets
 
 * [ultisnips](https://github.com/SirVer/ultisnips)
@@ -71,10 +80,9 @@ Dependencies
 * [pydoc](https://github.com/fs111/pydoc.vim)
 * [Indent Object](https://github.com/michaeljsmith/vim-indent-object)
 
-# Colors and status line customization
+# C / C++ development
 
-* [Color Schemes Collection](https://github.com/citlacom/vim-colors-collection)
-* [airline](https://github.com/vim-airline/vim-airline)
+* [clang complete](https://github.com/Rip-Rip/clang_complete)
 
 # Arduino development
 
@@ -87,6 +95,11 @@ Dependencies
 * [PrettyPrint](https://github.com/thinca/vim-prettyprint)
 * [Reload](https://github.com/xolox/vim-reload)
 * [Scriptease](https://github.com/tpope/vim-scriptease)
+
+# DevOps (configuration files)
+
+* [Dockerfile](https://github.com/ekalinin/Dockerfile.vim)
+* [Ansible](https://github.com/pearofducks/ansible-vim)
 
 Code autocompletion
 ===================
