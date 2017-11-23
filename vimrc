@@ -574,7 +574,7 @@ let g:UltiSnipsEditSplit="horizontal"
 nnoremap <localleader>se : UltiSnipsEdit<CR>
 
 """""""""""""""""""""""
-" Ariline configuration
+" Airline configuration
 """""""""""""""""""""""
 let g:airline#extensions#tabline#fnamemod = ':p:~'
 let g:airline#extensions#tabline#fnamecollapse = 1
