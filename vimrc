@@ -608,3 +608,10 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
   endif
 endfunction
+
+""""""""""""""""""""""""""""
+" Editorconfig configuration
+""""""""""""""""""""""""""""
+
+" Avoid conflicts with fugitive plugin.
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
