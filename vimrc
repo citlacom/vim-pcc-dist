@@ -480,6 +480,8 @@ nnoremap <silent> [unite]gp : <C-u>UnitePrevious<CR>
 nnoremap <silent> [unite]gd : <C-u>UniteDo
 " Start a Unite grep search.
 nnoremap <silent> [unite]gg : <C-u>Unite grep<CR>
+" Start a Unite grep using cursor word.
+nnoremap <silent> [unite]gw : <C-u>UniteWithCursorWord grep<CR>
 " Unite Drupal
 nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
@@ -582,3 +584,27 @@ function! AirlineInit()
     let g:airline_section_b = airline#section#create(['%{getcwd()}'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
+
+""""""""""""""""""""""""""""""""
+" Multiples cursor configuration
+""""""""""""""""""""""""""""""""
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-a>'
+let g:multi_cursor_prev_key='<C-s>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" Following functions avoid Neocomplete completes on multiples cursors by
+" switching a lock during multiple cursors usage.
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
