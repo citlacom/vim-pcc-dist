@@ -615,3 +615,10 @@ endfunction
 
 " Avoid conflicts with fugitive plugin.
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+
+""""""""""""""""""""""""
+" Hardmode configuration
+""""""""""""""""""""""""
+let g:HardMode_level = 'wannabe'
+" Enable on all buffers.
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
