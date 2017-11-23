@@ -48,6 +48,7 @@ Dependencies
 * [qfreplace](https://github.com/thinca/vim-qfreplace)
 * [repeat](https://github.com/tpope/vim-repeat)
 * [unimpaired](https://github.com/tpope/vim-unimpaired)
+* [hardmode](https://github.com/wikitopian/hardmode)
 
 # Colors and status line customization
 
@@ -65,6 +66,10 @@ Dependencies
 # SASS development
 
 * [scss-syntax](https://github.com/cakebaker/scss-syntax.vim)
+
+# HTML development
+
+* [emmet](https://github.com/mattn/emmet-vim)
 
 # PHP development
 
