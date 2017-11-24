@@ -622,3 +622,13 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 let g:HardMode_level = 'wannabe'
 " Enable on all buffers.
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" Define custom outline rules for Behat scenarios.
+if !exists('g:unite_source_outline_info')
+    let g:unite_source_outline_info = {}
+endif
+
+let g:unite_source_outline_info.behat = {
+        \ 'heading'  : '\(^\s\+Scenario:\s\+\)\zs.\+',
+        \ 'skip': {'block': ['^\s*$', '^\s*$']},
+        \ }
