@@ -623,12 +623,31 @@ let g:HardMode_level = 'wannabe'
 " Enable on all buffers.
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
+"""""""""""""""""""""""""""""
+" Unite Outline configuration
+"""""""""""""""""""""""""""""
 " Define custom outline rules for Behat scenarios.
 if !exists('g:unite_source_outline_info')
     let g:unite_source_outline_info = {}
 endif
 
 let g:unite_source_outline_info.behat = {
-        \ 'heading'  : '\(^\s\+Scenario:\s\+\)\zs.\+',
+        \ 'heading'  : '^\s\+Scenario:\s\+\ze.\+',
         \ 'skip': {'block': ['^\s*$', '^\s*$']},
+        \ 'type': 'generic',
         \ }
+
+""""""""""""""""""""""""
+" Markdown configuration
+""""""""""""""""""""""""
+" Disable folding.
+let g:vim_markdown_folding_disabled = 1
+" Enable conceal mode.
+set conceallevel=2
+" Highlight YAML front matter as used by Jekyll or Hugo.
+let g:vim_markdown_frontmatter = 1
+" Default indent leve.
+let g:vim_markdown_new_list_item_indent = 2
+" Enable auto save on any move.
+let g:vim_markdown_autowrite = 1
+

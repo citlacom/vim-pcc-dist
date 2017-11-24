@@ -106,6 +106,10 @@ Dependencies
 * [Dockerfile](https://github.com/ekalinin/Dockerfile.vim)
 * [Ansible](https://github.com/pearofducks/ansible-vim)
 
+# Documentation
+
+* [Markdown](https://github.com/plasticboy/vim-markdown)
+
 Code autocompletion
 ===================
 
