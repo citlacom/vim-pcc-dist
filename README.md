@@ -28,6 +28,10 @@ Custom vim distribution oriented to PHP and Python development.
 * [neopairs](https://github.com/Shougo/neopairs.vim)
 * [Emmet Autocompleter](https://github.com/TaDaa/vim-emmet-autocompleter)
 
+## Code validations
+
+* [Syntastic](https://github.com/vim-syntastic/syntastic)
+
 ## Git integration
 
 * [Fugitive](https://github.com/tpope/vim-fugitive)
