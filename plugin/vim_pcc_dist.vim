@@ -78,7 +78,9 @@ function! vim_pcc_dist#LocateNamespaceClass(full_class) " {{{
             if tolower(s:namespace) == tolower(tag.namespace)
                 let s:full_file_path = fnamemodify(tag.filename, ":p")
                 echom s:full_file_path
-                return s:full_file_path
+                " Open the class code file in horizontal split.
+                execute "new " . s:full_file_path
+                return
             endif
         endif
     endfor
