@@ -599,15 +599,15 @@ nnoremap ,d :call pdv#DocumentWithSnip()<CR>
 " Disable custom mappings.
 let g:vim_php_refactoring_use_default_mapping = 0
 " Customize the refactor function mappings..
-nnoremap <localleader>lv : call PhpRenameLocalVariable()<CR>
-nnoremap <localleader>cv : call PhpRenameClassVariable()<CR>
+nnoremap <localleader>rv : call PhpRenameLocalVariable()<CR>
+nnoremap <localleader>rc : call PhpRenameClassVariable()<CR>
 nnoremap <localleader>rm : call PhpRenameMethod()<CR>
-nnoremap <localleader>np : call PhpCreateProperty()<CR>
-nnoremap <localleader>du : call PhpDetectUnusedUseStatements()<CR>
-vnoremap <localleader>== : call PhpAlignAssigns()<CR>
-nnoremap <localleader>sg : call PhpCreateSettersAndGetters()<CR>
+nnoremap <localleader>cp : call PhpCreateProperty()<CR>
+nnoremap <localleader>cu : call PhpDetectUnusedUseStatements()<CR>
+vnoremap <localleader>ra : call PhpAlignAssigns()<CR>
+nnoremap <localleader>cf : call PhpCreateSettersAndGetters()<CR>
 nnoremap <localleader>cg : call PhpCreateGetters()<CR>
-lnoremap <localleader>da : call PhpDocAll()<CR>
+lnoremap <localleader>cd : call PhpDocAll()<CR>
 " First ste mode using pastetoggle and run the refactor function.
 nnoremap <localleader>eu : <C-U>set formatoptions-=ro\|call PhpExtractUse()\|set formatoptions+=ro<CR>
 vnoremap <localleader>ec : <C-U>set formatoptions-=ro\|call PhpExtractConst()\|set formatoptions+=ro<CR>
