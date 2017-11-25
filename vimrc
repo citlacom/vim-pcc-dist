@@ -421,9 +421,10 @@ endif
 "-------------------------------
 " Custom Unite sources mappings.
 "-------------------------------
-" Remove default unite mapping and map 'f' to it.
+" Remove default unite mapping and remap to 'Z' which is by default
+" used to quit VIM.
 nnoremap [unite] <Nop>
-nmap f [unite]
+nmap Z [unite]
 " List files within the current directory.
 nnoremap <silent> [unite]ed : <C-u>UniteWithCurrentDir -buffer-name=files file<CR>
 " Recursive list on current project directory to search files.
@@ -502,23 +503,28 @@ let g:unite_source_session_options = 'buffers,curdir,help,tabpages,winpos,winsiz
 let g:EasyMotion_smartcase = 1
 
 " Move to search 1 char pattern.
-map mf <Plug>(easymotion-bd-f)
-nmap mf <Plug>(easymotion-overwin-f)
+nmap f <Plug>(easymotion-bd-f)
 " Move to search 2 chars pattern.
-nmap s <Plug>(easymotion-overwin-f2)
-" Move to line
-map ml <Plug>(easymotion-bd-jk)
-nmap ml <Plug>(easymotion-overwin-line)
-" Move to word
-map gw <Plug>(easymotion-bd-w)
-nmap gw <Plug>(easymotion-overwin-w)
-" Line forward / backward movements
-map l <Plug>(easymotion-lineforward)
-map j <Plug>(easymotion-k)
-map k <Plug>(easymotion-j)
-map h <Plug>(easymotion-linebackward)
-" Movement for Spanish keyboard
-map ñ <Plug>(easymotion-linebackward)
+nmap s <Plug>(easymotion-bd-f2)
+" Move bidirectional to line.
+nmap ml <Plug>(easymotion-bd-jk)
+" Move bidirectional to word.
+nmap w <Plug>(easymotion-bd-w)
+" Move bidirectional to word.
+nmap e <Plug>(easymotion-bd-e)
+"nmap e <Plug>(easymotion-overwin-e)
+" Move bidirectional to strings.
+nmap W <Plug>(easymotion-bd-W)
+" Move bidirectional to strings.
+nmap E <Plug>(easymotion-bd-E)
+" Line forward / backward movements.
+nmap j <Plug>(easymotion-k)
+nmap k <Plug>(easymotion-j)
+" Line forward / backward movements in current line.
+nmap l <Plug>(easymotion-lineforward)
+nmap h <Plug>(easymotion-linebackward)
+" Clone 'h' movement for Spanish keyboard.
+nmap ñ <Plug>(easymotion-linebackward)
 
 """""""""""""""""""""""""""
 " phpcomplete configuration
@@ -650,4 +656,3 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 " Enable auto save on any move.
 let g:vim_markdown_autowrite = 1
-
