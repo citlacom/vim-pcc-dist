@@ -18,6 +18,6 @@ foreach my $line (@lines) {
   if (@line_cols) {
     #print Dumper \@line_cols;
     # Tab separated: service key - open class tag command.
-    print "$line_cols[0] - $line_cols[1]\tUnite tag -input=$line_cols[1]\n"
+    print "$line_cols[0] - $line_cols[1]\tvim_pcc_dist#LocateNamespaceClass($line_cols[1])\n"
   }
 }
