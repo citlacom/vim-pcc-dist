@@ -44,10 +44,15 @@ command! NeoCompleteCustomProjectDictionaries call NeocompleteConfigureCustomPro
 " Get the Drupal container services list.
 function! vim_pcc_dist#DrupalContainerExecute()
     let s:project_git_dir = fugitive#extract_git_dir(expand('%:p'))
-    let s:project_root = fnamemodify(s:project_git_dir, ':h')
     if s:project_git_dir != ''
-        let command = s:project_root . '/vendor/bin/drupal debug:container | perl -lane ''print "$F[0]\tUnite tag -input=$F[1]"'''
-        echo system(command)
+        let s:project_root = fnamemodify(s:project_git_dir, ':h')
+        let s:current_dir = fnamemodify(getcwd(), ':p')
+        " Move to repository root to run the script
+        cd s:project_root
+        " Run the Unite drupal container source command.
+        normal Unite script:perl:/Users/pablocc/.vim/bundle/vim-pcc-dist/scripts/drupal_container.pl
+        " Return to original directory.
+        cd s:current_dir
     endif
 endfunction
 
