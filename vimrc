@@ -704,3 +704,29 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 " Enable auto save on any move.
 let g:vim_markdown_autowrite = 1
+
+"""""""""""""""""""""""""
+" Syntastic configuration
+"""""""""""""""""""""""""
+set signcolumn=yes
+" Update the location-list automatically.
+let g:syntastic_always_populate_loc_list = 1
+" Error window will be opened / closed automatically.
+let g:syntastic_auto_loc_list = 1
+" Check file syntax when code file is opened.
+let g:syntastic_check_on_open = 1
+" Check file syntax when code file is write and quit :wq.
+let g:syntastic_check_on_wq = 1
+" Run all checkers for current file and aggregate errors.
+let g:syntastic_aggregate_errors = 1
+" Display the checker ID on aggregated errors.
+let g:syntastic_id_checkers = 1
+" Echo the error of cursor line to console, when multiples errors
+" only show the first on the list.
+let g:syntastic_echo_current_error = 1
+" Highlight the error line when possible.
+let g:syntastic_enable_highlighting = 1
+" Enable the perl syntax check that is disabled by default due
+" security reasons when checking third party code files, only
+" enable to review code that you trust.
+let g:syntastic_enable_perl_checker = 1
