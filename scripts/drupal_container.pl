@@ -31,8 +31,15 @@ foreach my $line (@lines) {
   my @line_cols = split /\s+/, $line;
 
   if (@line_cols) {
+    # We expect exactly 2 columns: service ID and class path so ignore edge
+    # cases if happens.
+    if (scalar @line_cols != 2) {
+      next;
+    }
+
     #print Dumper \@line_cols;
     # Tab separated: service key - open class tag command.
-    print "$line_cols[0] - $line_cols[1]\tvim_pcc_dist#LocateNamespaceClass($line_cols[1])\n"
+    print sprintf("%s - %s\tcall vim_pcc_dist#LocateNamespaceClass(%s)\n",
+    $line_cols[0], $line_cols[1], $line_cols[1])
   }
 }
