@@ -194,20 +194,20 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 """"""""""""""""""""""
 " Python plugins fixes
 """"""""""""""""""""""
-python << EOF
-import os
-import sys
-import vim
-for p in sys.path:
-    # Add each directory in sys.path, if it exists.
-    if os.path.isdir(p):
-        # Command 'set' needs backslash before each space.
-        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-EOF
+"python << EOF
+"import os
+"import sys
+"import vim
+"for p in sys.path:
+    "# Add each directory in sys.path, if it exists.
+    "if os.path.isdir(p):
+        "# Command 'set' needs backslash before each space.
+        "vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+"EOF
 
-" Fix debugger encoding issue
-python reload(sys)
-python sys.setdefaultencoding('big5')
+"" Fix debugger encoding issue
+"python reload(sys)
+"python sys.setdefaultencoding('big5')
 
 """""""""""""""""""""""""""
 " Neocomplete configuration
