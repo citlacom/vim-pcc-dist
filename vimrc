@@ -501,15 +501,44 @@ let g:unite_source_session_options = 'buffers,curdir,help,tabpages,winpos,winsiz
 """""""""""""""""""""""""""
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+" Matching signs: E.g. type '1' and it matches both '1' and '!' in find motion.
+let g:EasyMotion_use_smartsign_us = 1
+" Show the movement keys in uppercase but allows to move using case
+" insensitive (upper or lower cases), facilitate visual identification.
+let g:EasyMotion_use_upper = 1
 " Limit the movement chars indexes.
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz1234567890'
+let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 " Jump to first movement match pressing space bar.
 let g:EasyMotion_space_jump_first = 1
+" Same as above with enter key.
+let g:EasyMotion_enter_jump_first = 1
+" Disable the default mappings that we customize below.
+let g:EasyMotion_do_mapping = 0
+" Customize the jumptoanywhere motion allowing to move start / end words and
+" separator symbols: '"[]{}()$=
+let g:EasyMotion_re_anywhere = '\v' .
+            \       '(<.|^$)' . '|' .
+            \       '(.>|^$)' . '|' .
+            \       '(\l)\zs(\u)' . '|' .
+            \       '(_\zs.)' . '|' .
+            \       '(#\zs.)' . '|' .
+            \       '([''"\[\]\(\)\{\}\$=])'
+" Same as above but for the lineanywhere movement.
+let g:EasyMotion_re_line_anywhere = '\v' .
+            \       '(<.|^$)' . '|' .
+            \       '(.>|^$)' . '|' .
+            \       '(\l)\zs(\u)' . '|' .
+            \       '(_\zs.)' . '|' .
+            \       '(#\zs.)' . '|' .
+            \       '([''"\[\]\(\)\{\}\$=])'
 
 " Move to search 1 char pattern.
 nmap f <Plug>(easymotion-bd-f)
-" Move to search 2 chars pattern.
+" Move to search 2 chars pattern in normal, visual and operator
+" pending modes.
+xmap s <Plug>(easymotion-bd-f2)
 nmap s <Plug>(easymotion-bd-f2)
+omap <localleader>s <Plug>(easymotion-bd-f2)
 " Move bidirectional to line.
 nmap ml <Plug>(easymotion-bd-jk)
 " Move bidirectional to word.
@@ -533,6 +562,17 @@ nmap ñ <Plug>(easymotion-linebackward)
 nmap mñ <Plug>(easymotion-jumptoanywhere)
 " Jump to start or end of words within cursor line.
 nmap mk <Plug>(easymotion-lineanywhere)
+" Repeat the last easymovement.
+nmap m. <Plug>(easymotion-repeat)
+" Go to the next easymovement result.
+nmap m, <Plug>(easymotion-next)
+" Go to the previous easymovement result.
+nmap m- <Plug>(easymotion-prev)
+" Do a multi-character movement by search in normal, visual and operator
+" pending modes.
+nmap <localleader>s <Plug>(easymotion-sn)
+xmap <localleader>s <Plug>(easymotion-sn)
+omap <localleader>z <Plug>(easymotion-sn)
 
 """""""""""""""""""""""""""
 " phpcomplete configuration
