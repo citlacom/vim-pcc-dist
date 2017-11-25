@@ -501,6 +501,10 @@ let g:unite_source_session_options = 'buffers,curdir,help,tabpages,winpos,winsiz
 """""""""""""""""""""""""""
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+" Limit the movement chars indexes.
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz1234567890'
+" Jump to first movement match pressing space bar.
+let g:EasyMotion_space_jump_first = 1
 
 " Move to search 1 char pattern.
 nmap f <Plug>(easymotion-bd-f)
@@ -525,6 +529,10 @@ nmap l <Plug>(easymotion-lineforward)
 nmap h <Plug>(easymotion-linebackward)
 " Clone 'h' movement for Spanish keyboard.
 nmap ñ <Plug>(easymotion-linebackward)
+" Jump to start or end of words within the screen lines.
+nmap mñ <Plug>(easymotion-jumptoanywhere)
+" Jump to start or end of words within cursor line.
+nmap mk <Plug>(easymotion-lineanywhere)
 
 """""""""""""""""""""""""""
 " phpcomplete configuration
