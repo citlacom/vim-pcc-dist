@@ -39,7 +39,7 @@ foreach my $line (@lines) {
 
     #print Dumper \@line_cols;
     # Tab separated: service key - open class tag command.
-    print sprintf("%s - %s\tcall vim_pcc_dist#LocateNamespaceClass(%s)\n",
+    print sprintf("%s - %s\tcall vim_pcc_dist#LocateNamespaceClass('%s')\n",
     $line_cols[0], $line_cols[1], $line_cols[1])
   }
 }
