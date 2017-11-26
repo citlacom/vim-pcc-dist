@@ -483,12 +483,15 @@ nnoremap <silent> [unite]gd : <C-u>UniteDo
 nnoremap <silent> [unite]gg : <C-u>Unite grep<CR>
 " Start a Unite grep using cursor word.
 nnoremap <silent> [unite]gw : <C-u>UniteWithCursorWord grep<CR>
-" Unite Drupal
-nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
-nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
-nnoremap <silent> [unite]ds : <C-u>Unite output:DrupalContainer<CR>
 " List all Unite sources.
 nnoremap [unite]f : <C-u>Unite source<CR>
+
+" Drupal Unite mappings
+"----------------------
+nnoremap <silent> [unite]
+nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
+nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
+nnoremap <silent> [unite]dc : <C-u>UniteDrupalContainer<CR>
 
 """"""""""""""""
 " Unite sessions

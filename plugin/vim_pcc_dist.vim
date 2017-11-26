@@ -58,7 +58,7 @@ function! vim_pcc_dist#DrupalContainerExecute()
 endfunction
 
 " Map function call to a command.
-command! DrupalContainer call vim_pcc_dist#DrupalContainerExecute()
+command! UniteDrupalContainer call vim_pcc_dist#DrupalContainerExecute()
 
 " Get the file location of a namespaced class.
 function! vim_pcc_dist#LocateNamespaceClass(full_class) " {{{
