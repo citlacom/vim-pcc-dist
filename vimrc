@@ -18,7 +18,7 @@ syntax on
 " Customize leader.
 let g:mapleader = "."
 " Customize local leader.
-let s:maplocalleader = ','
+let g:maplocalleader = ','
 set history=200
 set complete=.,w,b,u,t
 " Status Line
