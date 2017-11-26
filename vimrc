@@ -6,17 +6,19 @@ call pathogen#infect()
 """"""""""""""""""""""""
 " VIM core configuration
 """"""""""""""""""""""""
+" No vi compatible.
+set nocompatible
+" Declare utf8 encoding.
+scriptencoding utf-8
 lang en_US.UTF-8
 " Determine the OS on os variable.
-let os = substitute(system('uname'), "\n", "", "")
+let g:os = substitute(system('uname'), "\n", "", "")
 " Enable syntax colors.
 syntax on
 " Customize leader.
-let mapleader = "."
+let g:mapleader = "."
 " Customize local leader.
-let maplocalleader = ','
-" No vi compatible.
-set nocompatible
+let s:maplocalleader = ','
 set history=200
 set complete=.,w,b,u,t
 " Status Line
@@ -729,6 +731,9 @@ let g:syntastic_id_checkers = 1
 let g:syntastic_echo_current_error = 1
 " Highlight the error line when possible.
 let g:syntastic_enable_highlighting = 1
+
+" PERL syntax checkers
+"---------------------
 " Enable the perl syntax check that is disabled by default due
 " security reasons when checking third party code files, only
 " enable to review code that you trust.
@@ -739,3 +744,7 @@ let g:syntastic_enable_perl6_checker = 1
 let g:syntastic_perl_perlcritic_post_args =
         \ '--verbose "\%s:\%f:\%l:\%c: \%p: \%m\n"'
 let g:syntastic_perl_checkers = ['perl', 'perlcritic']
+
+" VimL syntax checkers
+" --------------------
+let g:syntastic_vim_checkers = ['vimlint']
