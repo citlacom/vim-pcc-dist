@@ -48,11 +48,12 @@ function! vim_pcc_dist#DrupalContainerExecute()
         let s:project_root = fnamemodify(s:project_git_dir, ':h')
         let s:current_dir = fnamemodify(getcwd(), ':p')
         " Move to repository root to run the script
-        cd s:project_root
+        execute "cd " . s:project_root
         " Run the Unite drupal container source command.
-        normal Unite script:perl:/Users/pablocc/.vim/bundle/vim-pcc-dist/scripts/drupal_container.pl
+        let s:command = $HOME . '/.vim/bundle/vim-pcc-dist/scripts/drupal_container.pl'
+        execute "Unite script:perl:" . s:command
         " Return to original directory.
-        cd s:current_dir
+        execute "cd " . s:current_dir
     endif
 endfunction
 
