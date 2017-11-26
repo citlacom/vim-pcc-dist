@@ -9,6 +9,20 @@
 # results so you are required to pass extra argument to force rebuild.
 ###############################################################################
 
+# TODO: Refactor to more generic Drupal Console script and itegrate other
+# sources:
+# debug:plugin
+# debug:roles
+# debug:config
+# debug:database:table
+# debug:entity
+# debug:image:styles
+# debug:roles
+# debug:state
+# debug:theme:keys
+# debug:views
+# field:info --detailed
+
 use Digest::MD5 qw(md5);
 use Cache::File;
 use Cwd;
