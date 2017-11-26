@@ -8,6 +8,19 @@ Custom vim distribution oriented to PHP and Python development.
 
 * [EditorConfig](https://github.com/editorconfig/editorconfig-vim)
 
+## Code auto-completion
+
+* [Neocomplete](https://github.com/Shougo/neocomplete.vim)
+* [Neoinclude](https://github.com/Shougo/neoinclude.vim)
+* [neopairs](https://github.com/Shougo/neopairs.vim)
+* [Emmet Autocompleter](https://github.com/TaDaa/vim-emmet-autocompleter)
+
+## Code validation
+
+* [Syntastic](https://github.com/vim-syntastic/syntastic)
+* [vimlint](https://github.com/syngan/vim-vimlint)
+* [vimlparser](https://github.com/vim-jp/vim-vimlparser)
+
 ## Files and data exploration
 
 * [Unite](https://github.com/Shougo/unite.vim)
@@ -20,17 +33,6 @@ Custom vim distribution oriented to PHP and Python development.
 * [Unite Tag](https://github.com/tsukkee/unite-tag)
 * [Unite Tasklist](https://github.com/junkblocker/unite-tasklist)
 * [NeoMRU](https://github.com/Shougo/neomru.vim)
-
-## Code auto-completion
-
-* [Neocomplete](https://github.com/Shougo/neocomplete.vim)
-* [Neoinclude](https://github.com/Shougo/neoinclude.vim)
-* [neopairs](https://github.com/Shougo/neopairs.vim)
-* [Emmet Autocompleter](https://github.com/TaDaa/vim-emmet-autocompleter)
-
-## Code validations
-
-* [Syntastic](https://github.com/vim-syntastic/syntastic)
 
 ## Git integration
 
