@@ -681,7 +681,7 @@ nmap <localleader>gp : Gcd<CR>
 " Git status.
 nmap <localleader>gs : Gstatus<CR>
 " Git log of current buffer.
-nmap <localleader>gbl : Gstatus<CR>
+nmap <localleader>gbl : Glog<CR>
 " Git global log limited to most recent 100 commits.
 nmap <localleader>ggl : Glog -100 --<CR>
 " Git pull.
@@ -703,9 +703,9 @@ nmap <localleader>gdd : Gremove<CR>
 " Git blame current buffer.
 nmap <localleader>gb : Gblame<CR>
 " Explore current file at Github.
-nmap <localleader>gg : Gbrowse<CR>
+nmap <localleader>gh : Gbrowse<CR>
 " Git log search on ancenstral commit diff (requires keyword input).
-nmap <localleader>gds : Glog -S<CR>
+nmap <localleader>gcs : Glog -S<CR>
 
 """"""""""""""""""""""""
 " Hardmode configuration
