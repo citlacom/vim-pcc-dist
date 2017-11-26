@@ -18,7 +18,7 @@ syntax on
 " Customize leader.
 let g:mapleader = "."
 " Customize local leader.
-let g:maplocalleader = ','
+let s:maplocalleader = ','
 set history=200
 set complete=.,w,b,u,t
 " Status Line
@@ -108,8 +108,6 @@ imap <C-f2> <c-x><c-o>
 noremap <localleader>i :set list!<CR>
 " Set the current buffer directory as current directory.
 map <localleader>pb :cd %:h<CR>
-" Set the buffer GIT root as current directory.
-map <localleader>pp :Gcd<CR>
 " Paste toogle.
 nnoremap <localleader>p :set invpaste paste?<CR>
 set pastetoggle=<localleader>p
@@ -674,6 +672,40 @@ endfunction
 
 " Avoid conflicts with fugitive plugin.
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+
+""""""""""""""""""""""""
+" Fugitive configuration
+""""""""""""""""""""""""
+" Set current directory to buffer Git repository root.
+nmap <localleader>gp : Gcd<CR>
+" Git status.
+nmap <localleader>gs : Gstatus<CR>
+" Git log of current buffer.
+nmap <localleader>gbl : Gstatus<CR>
+" Git global log limited to most recent 100 commits.
+nmap <localleader>ggl : Glog -100 --<CR>
+" Git pull.
+nmap <localleader>gpl : Gpull<CR>
+" Git push.
+nmap <localleader>gps : Gpush<CR>
+" Git commit.
+nmap <localleader>gci : Gcommit<CR>
+" Git edit last revision.
+nmap <localleader>ge : Gedit<CR>
+" Git diff staged changes.
+nmap <localleader>gds : Gdiff<CR>
+" Git diff origin master.
+nmap <localleader>gdm : Gdiff origin/master<CR>
+" Start the Git move (requires new filename argument)
+nmap <localleader>gmv : Gmove
+" Git delete file but keep empty buffer.
+nmap <localleader>gdd : Gremove<CR>
+" Git blame current buffer.
+nmap <localleader>gb : Gblame<CR>
+" Explore current file at Github.
+nmap <localleader>gg : Gbrowse<CR>
+" Git log search on ancenstral commit diff (requires keyword input).
+nmap <localleader>gds : Glog -S<CR>
 
 """"""""""""""""""""""""
 " Hardmode configuration
