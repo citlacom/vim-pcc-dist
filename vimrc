@@ -681,9 +681,9 @@ nmap <localleader>gp : Gcd<CR>
 " Git status.
 nmap <localleader>gs : Gstatus<CR>
 " Git log of current buffer.
-nmap <localleader>gbl : Glog<CR>
+nmap <localleader>gbl : silent Glog \| copen<CR>
 " Git global log limited to most recent 100 commits.
-nmap <localleader>ggl : Glog -100 --<CR>
+nmap <localleader>ggl : silent Glog -100 -- \| copen<CR>
 " Git pull.
 nmap <localleader>gpl : Gpull<CR>
 " Git push.
