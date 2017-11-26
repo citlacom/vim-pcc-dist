@@ -488,7 +488,6 @@ nnoremap [unite]f : <C-u>Unite source<CR>
 
 " Drupal Unite mappings
 "----------------------
-nnoremap <silent> [unite]
 nnoremap <silent> [unite]dw : <C-u>Unite drupal/watchdog<CR>
 nnoremap <silent> [unite]dd : <C-u>Unite drupal/dirs<CR>
 nnoremap <silent> [unite]dc : <C-u>UniteDrupalContainer<CR>
