@@ -100,7 +100,7 @@ function! vim_pcc_dist#BehatDefinitions()
     let output = system('../bin/behat -di')
     if v:shell_error == 0
         for line in filter(split(output, "\n"), 'v:val =~ "Given\\|Then\\|When"')
-            PPmsg(line)
+            execute PPmsg(line)
             "let method = matchstr(source, '::\zs\w\+\ze()')
         endfor
     endif
