@@ -16,15 +16,21 @@ use Data::Dumper qw(Dumper);
 use strict;
 use warnings;
 
-# The command is very but this is called async so show quickly
-# a wait message.
-print "Waiting response.\techo('Please wait.')\n";
 # Path to the drupal console executable.
 # TODO: Improve drupal bin location within a Drupal project due with composer
 # the bin directory could be customized by bin-dir.
 my $drupal = './vendor/bin/drupal';
 my $current_dir = getcwd();
 my $output = '';
+
+# Check that Drupal Console is executable from current directory
+# so this script is expected to run located at Drupal project repository
+# root directory.
+if (not -x $drupal) {
+  print sprintf("The %s executable not available on %s\techo('Use a correct directory.')\n",
+      $drupal, $current_dir);
+  exit 1;
+}
 
 # Cache expiration is set to 1 day.
 my $cache = Cache::File->new(
@@ -40,15 +46,9 @@ if (defined $result) {
   exit 0;
 }
 
-# Check that Drupal Console is executable from current directory
-# so this script is expected to run located at Drupal project repository
-# root directory.
-if (not -x $drupal) {
-  print sprintf("The %s executable not available on %s\techo('Use a correct directory.')\n",
-      $drupal, $current_dir);
-  exit 1;
-}
-
+# The command is very but this is called async so show quickly
+# a wait message.
+print "Building the Drupal Console response, type after 15 seconds.\techo('Building cache, please wait...')\n";
 # Execute Drupal Console debug:container command.
 my @lines = qx($drupal debug:container);
 
