@@ -51,7 +51,7 @@ function! vim_pcc_dist#DrupalContainerExecute()
         execute "cd " . s:project_root
         " Run the Unite drupal container source command.
         let s:command = $HOME . '/.vim/bundle/vim-pcc-dist/scripts/drupal_container.pl'
-        execute "Unite script:perl:" . s:command
+        execute "Unite script:perl:" . s:command . ' -buffer-name=Drupal\ Container -start-insert'
         " Return to original directory.
         execute "cd " . s:current_dir
     endif
