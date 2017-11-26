@@ -3,6 +3,7 @@
 use Data::Dumper qw(Dumper);
 use strict;
 use warnings;
+use Cwd;
 
 # The command is very but this is called async so show quickly
 # a wait message.
@@ -11,12 +12,14 @@ print "Waiting response.\techo('Please wait.')\n";
 # TODO: Improve drupal bin location within a Drupal project due with composer
 # the bin directory could be customized by bin-dir.
 my $drupal = './vendor/bin/drupal';
+my $current_dir = getcwd();
 
 # Check that Drupal Console is executable from current directory
 # so this script is expected to run located at Drupal project repository
 # root directory.
 if (not -x $drupal) {
-  print "The $drupal executable not available on $drupal.\techo('Use a correct directory.')\n";
+  print sprintf("The %s executable not available on %s\techo('Use a correct directory.')\n",
+      $drupal, $current_dir);
   exit;
 }
 
