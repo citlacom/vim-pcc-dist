@@ -84,6 +84,7 @@ Custom vim distribution oriented to PHP and Python development.
 * [phpcomplete](https://github.com/shawncplus/phpcomplete.vim)
 * [PHP Indenting](https://github.com/2072/PHP-Indenting-for-VIm)
 * [PHP Refactoring Toolbox](https://github.com/adoy/vim-php-refactoring-toolbox)
+* [PHP namespace](https://github.com/arnaud-lb/vim-php-namespace)
 * [Behat](https://github.com/veloce/vim-behat)
 * [Twig](https://github.com/lumiliet/vim-twig)
 
