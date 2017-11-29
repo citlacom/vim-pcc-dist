@@ -749,8 +749,8 @@ set signcolumn=yes
 let g:syntastic_always_populate_loc_list = 1
 " Error window will be opened / closed automatically.
 let g:syntastic_auto_loc_list = 1
-" Check file syntax when code file is opened.
-let g:syntastic_check_on_open = 1
+" Don't check file syntax when code file is opened.
+let g:syntastic_check_on_open = 0
 " Check file syntax when code file is write and quit :wq.
 let g:syntastic_check_on_wq = 1
 " Run all checkers for current file and aggregate errors.
@@ -779,3 +779,8 @@ let g:syntastic_perl_checkers = ['perl', 'perlcritic']
 " VimL syntax checkers
 " --------------------
 let g:syntastic_vim_checkers = ['vimlint']
+
+" PHP checkers
+"-------------
+let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
+let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
