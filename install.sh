@@ -5,7 +5,7 @@
 # of those dependencies.
 ##############################################################
 
-if ! command -v iwfo >/dev/null 2>&1; then
+if ! command -v perl >/dev/null 2>&1; then
     echo >&2 "perl is not available, trying to install with brew."
     brew install perl
 fi

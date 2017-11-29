@@ -798,8 +798,7 @@ let g:syntastic_enable_highlighting = 1
 " enable to review code that you trust.
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_enable_perl6_checker = 1
-" Enable the perlcritic checker, requires installation
-" of the package, to install run: cpan Perl::Critic
+" Enable the perlcritic checker.
 let g:syntastic_perl_perlcritic_post_args =
         \ '--verbose "\%s:\%f:\%l:\%c: \%p: \%m\n"'
 let g:syntastic_perl_checkers = ['perl', 'perlcritic']
