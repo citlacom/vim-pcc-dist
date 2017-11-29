@@ -3,6 +3,20 @@
 # Some VIM features depend on external tools that are used via
 # system calls, here we attempt to automate the installation
 # of those dependencies.
+##############################################################
+
+if ! command -v iwfo >/dev/null 2>&1; then
+    echo >&2 "perl is not available, trying to install with brew."
+    brew install perl
+fi
+
+if [[ $? -ne 0 ]]; then
+    echo "perl installation failed, please try to install manually."
+    exit 1;
+fi
+
+# Install perl critic, used for Perl coding standard.
+cpan Perl::Critic
 
 # NOTE: Drupal code is only compatible with squizlabs/php_codesniffer: >=2.8.1 <3.0
 # so in case there is a recent installed version will cause a conflict.
