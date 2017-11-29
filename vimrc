@@ -595,6 +595,34 @@ let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 " Custom PDV mapping.
 nnoremap ,d :call pdv#DocumentWithSnip()<CR>
 
+""""""""""""""""
+" PHP namespace.
+""""""""""""""""
+" Sort use statements automatically after insert.
+let g:php_namespace_sort_after_insert = 1
+
+" Insert a use statement with cursor word symbol.
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+
+" Expand to fully qualified classname with cursor word.
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+
+" Expand class.
+autocmd FileType php inoremap <localleader>ec <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <localleader>ec :call PhpExpandClass()<CR>
+" Insert use.
+autocmd FileType php inoremap <localleader>iu <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <localleader>iu :call PhpInsertUse()<CR>
+" Sort use statements of current buffer.
+autocmd FileType php inoremap <localleader>us <Esc>:call PhpSortUse()<CR>
+autocmd FileType php noremap <localleader>us :call PhpSortUse()<CR>
+
 """""""""""""""""""""""""""""""""""""""
 " Php Refactoring Toolbox configuration
 """""""""""""""""""""""""""""""""""""""
