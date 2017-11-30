@@ -123,6 +123,9 @@ nnoremap <localleader>qa :bufdo bd%<CR>
 nnoremap <localleader>px : 1,$!tidy -i -xml 2>/dev/null
 nnoremap <localleader>ph : 1,$!tidy -i -html 2>/dev/null
 nnoremap <localleader>pj : 1,$!python -m json.tool 2>/dev/null
+" Generate PHP code tags file.
+nnoremap <leader>gt : call vim_pcc_dist#GeneratePhpTags()<CR>
+
 """"""""""""""""""""""""""""
 " File types configurations.
 """"""""""""""""""""""""""""

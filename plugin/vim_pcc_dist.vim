@@ -149,7 +149,7 @@ function! vim_pcc_dist#GeneratePhpTags()
         " Set tags to this file.
         let s:tags_file = s:project_root . '/.tags_php'
         let &tags = s:tags_file
-        echo printf("Tags file set to: %s", s:tags_file)
+        echo printf("Generating file and set tags to: %s", s:tags_file)
         " Return to original directory.
         execute "cd " . s:current_dir
     endif
