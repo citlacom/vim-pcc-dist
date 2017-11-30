@@ -133,5 +133,27 @@ function! vim_pcc_dist#FindBehatBin()
     endfor
 endfunction
 
+" Build PHP tags file for current repository project at root directory and set
+" the resulting file as current tags file.
+function! vim_pcc_dist#GeneratePhpTags()
+    let s:project_root = vim_pcc_dist#GetBufferProjectRoot()
+    if s:project_root != ''
+        let s:current_dir = fnamemodify(getcwd(), ':p')
+        " Move to repository root to generate project tags.
+        execute "cd " . s:project_root
+        " Clean the tags.
+        call system('rm -rf .tags_php')
+        " Generate the PHP tags async.
+        let s:cmd = 'ctags -R -V -o .tags_php --fields=+aimlS --langmap="php:+.inc.module.install.php" --languages="php" --totals=yes --sort=yes'
+        call vimproc#system_bg(s:cmd)
+        " Set tags to this file.
+        let s:tags_file = s:project_root . '/.tags_php'
+        let &tags = s:tags_file
+        echo printf("Tags file set to: %s", s:tags_file)
+        " Return to original directory.
+        execute "cd " . s:current_dir
+    endif
+endfunction
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
