@@ -426,7 +426,7 @@ endif
 nnoremap [unite] <Nop>
 nmap Z [unite]
 " List files within the current directory.
-nnoremap <silent> [unite]ed : <C-u>UniteWithCurrentDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]ed : <C-u>UniteWithCurrentDir -buffer-name=files file_rec/async<CR>
 " Recursive list on current project directory to search files.
 nnoremap <silent> [unite]ep : <C-u>UniteWithProjectDir -start-insert file_rec/async<CR>
 " List files within the current buffer directory.
@@ -751,7 +751,6 @@ endif
 
 let g:unite_source_outline_info.behat = {
         \ 'heading'  : '^\s\+Scenario:\s\+\ze.\+',
-        \ 'skip': {'block': ['^\s*$', '^\s*$']},
         \ 'type': 'generic',
         \ }
 
