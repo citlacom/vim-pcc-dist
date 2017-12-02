@@ -32,3 +32,8 @@ composer global require dealerdirect/phpcodesniffer-composer-installer
 # TODO: Handle installation of bash completion which is very useful complement.
 # stecman/composer-bash-completion-plugin
 # bamarni/symfony-console-autocomplete
+
+# Install Universal Ctags which has better PHP parsing than Exuberan Ctags and
+# is under active maintainance.
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
