@@ -144,7 +144,7 @@ function! vim_pcc_dist#GeneratePhpTags()
         " Clean the tags.
         call system('rm -rf .tags_php')
         " Generate the PHP tags async.
-        let s:cmd = 'ctags -R -V -o .tags_php --fields=+aimlS --langmap="php:+.inc.module.install.php" --languages="php" --totals=yes --sort=yes'
+        let s:cmd = 'ctags -R -o .tags_php --fields=+aimlS --langmap="php:+.inc.module.install.php" --languages=php --links=no --totals=yes --sort=yes'
         call vimproc#system_bg(s:cmd)
         " Set tags to this file.
         let s:tags_file = s:project_root . '/.tags_php'
