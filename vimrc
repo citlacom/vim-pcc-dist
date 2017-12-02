@@ -393,8 +393,9 @@ elseif executable('ag')
     let g:unite_source_grep_command = 'ag'
     "let g:unite_source_grep_default_opts = '--column --nogroup --nocolor --follow --skip-vcs-ignores'
     let g:unite_source_grep_default_opts =
-                \ '-i --vimgrep --hidden --ignore ' .
-                \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+                \ '-i --vimgrep --hidden --skip-vcs-ignores --ignore ''.hg''' .
+                \ ' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr''' .
+                \ ' --ignore ''.tags_*'''
     let g:unite_source_grep_recursive_opt = ''
     " Use ag for rec_async with ignore of VCS rules and hidden files.
     let g:unite_source_rec_async_command =
@@ -485,7 +486,9 @@ nnoremap <silent> [unite]gd : <C-u>UniteDo
 " Start a Unite grep search.
 nnoremap <silent> [unite]gg : <C-u>Unite grep<CR>
 " Start a Unite grep using cursor word.
-nnoremap <silent> [unite]gw : <C-u>UniteWithCursorWord grep<CR>
+nnoremap <silent> [unite]gw : <C-u>Unite grep:.::`expand('<cword>')`<CR>
+" Start a Unite grep using cursor word but without trigger search.
+nnoremap [unite]gr : <C-u>Unite grep:.:<CR>
 " List all Unite sources.
 nnoremap [unite]f : <C-u>Unite source<CR>
 
