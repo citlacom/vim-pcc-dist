@@ -295,7 +295,7 @@ endif
 let g:neocomplete#sources#member#prefix_patterns.php = '\.\|->\|::\|\\'
 
 " Use the specified convertes in that order for buffer words candidates.
-call neocomplete#custom#source('buffer', 'converters', ['converter_array_dim', 'remove_lead_trail_quotes', 'converter_remove_last_paren', 'converter_remove_overlap'])
+call neocomplete#custom#source('buffer', 'converters', ['converter_multi_array_parts', 'converter_remove_lead_trail_quotes', 'converter_remove_last_paren', 'converter_remove_overlap'])
 " Delimiters of namespaces, class static functions and methods.
 let g:neocomplete#delimiter_patterns.php = ['\', '::', '->']
 " For PHP only auocomplete variable names.
