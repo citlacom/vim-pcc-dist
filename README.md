@@ -65,10 +65,10 @@ Custom vim distribution oriented to PHP and Python development.
 ## Code snippets
 
 * [ultisnips](https://github.com/SirVer/ultisnips)
-* [Snippets Mixed Languages](https://github.com/honza/vim-snippets)
-* [Snippets Drupal](https://github.com/dsdeiz/vim-drupal-snippets.git)
-* [Snippets PHP](https://github.com/algotech/ultisnips-php)
-* [Snippets React](https://github.com/epilande/vim-react-snippets)
+* [Multiples Languages Snippets](https://github.com/honza/vim-snippets)
+* [Drupal Snippets](https://github.com/citlacom/vim-drupal-snippets)
+* [PHP Snippets](https://github.com/algotech/ultisnips-php)
+* [React Snippets](https://github.com/epilande/vim-react-snippets)
 
 ## SASS development
 
