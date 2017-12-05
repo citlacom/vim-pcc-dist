@@ -90,6 +90,9 @@ if has("gui_running")
   colors wombat
 endif
 
+" In a git commit message put the cursor on first line.
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 """""""""""""""""""""""""
 " General custom mappings
 """""""""""""""""""""""""
