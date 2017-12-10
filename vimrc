@@ -819,3 +819,20 @@ let g:syntastic_vim_checkers = ['vimlint']
 "-------------
 let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
 let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
+
+""""""""""""""""""""""
+" Vdebug configuration
+""""""""""""""""""""""
+let g:vdebug_keymap = {
+            \    "run" : "<leader>dr",
+            \    "run_to_cursor" : "<leader>dc",
+            \    "step_over" : "<leader>do",
+            \    "step_into" : "<leader>di",
+            \    "step_out" : "<leader>db",
+            \    "close" : "<leader>dc",
+            \    "detach" : "<leader>dd",
+            \    "set_breakpoint" : "<leader>dp",
+            \    "get_context" : "<leader>dc",
+            \    "eval_under_cursor" : "<leader>de",
+            \    "eval_visual" : "<leader>e",
+            \}
