@@ -163,10 +163,10 @@ autocmd FileType php UltiSnipsAddFiletypes drupal
 
 augroup php
   autocmd bufread,bufnewfile,bufenter *.tpl.php set filetype=html
+  autocmd bufread,bufnewfile,bufenter *.theme set filetype=php
   " No more needed, VIM 8 properly auto detects PHP code when start with <?php
   " tag. Uncomment if you have problems with notn standard PHP file extensions.
   "autocmd bufread,bufnewfile,bufenter *.install set filetype=php
-  "autocmd bufread,bufnewfile,bufenter *.theme set filetype=php
   "autocmd bufread,bufnewfile,bufenter *.module set filetype=php
 augroup end
 
@@ -355,9 +355,6 @@ nnoremap <localleader>nds :PP(neocomplete#variables#get_sources())<CR>
 """""""""""""""""""""
 " Unite configuration
 """""""""""""""""""""
-let g:unite_source_find_max_candidates = 1000
-let g:unite_source_rec_max_cache_files = 0
-let g:unite_source_grep_max_candidates = 1000
 let g:unite_source_history_yank_enable = 1
 " Start insert.
 let g:unite_enable_start_insert = 1
@@ -381,7 +378,11 @@ let g:unite_tig_default_fold = 1
 " Unite Sessions
 let g:unite_source_session_options = "blank,buffers,curdir,folds,help,resize,tabpages,winsize"
 " Limit the number candidates list for file recursive and file recursive async.
-call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 500)
+call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 1000)
+" Max candidates for the grep source.
+call unite#custom#source('grep', 'max_candidates', 2000)
+" Set unlimited number of files on the file_rec cache.
+let g:unite_source_rec_max_cache_files = 0
 
 " Configure the grep tool based on availability and speed performance.
 if executable('hw')
