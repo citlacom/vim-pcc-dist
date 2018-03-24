@@ -826,11 +826,11 @@ let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,in
 """"""""""""""""""""""
 let g:vdebug_keymap = {
             \    "run" : "<leader>dr",
-            \    "run_to_cursor" : "<leader>dc",
+            \    "run_to_cursor" : "<leader>dh",
             \    "step_over" : "<leader>do",
             \    "step_into" : "<leader>di",
             \    "step_out" : "<leader>db",
-            \    "close" : "<leader>dc",
+            \    "close" : "<leader>dx",
             \    "detach" : "<leader>dd",
             \    "set_breakpoint" : "<leader>dp",
             \    "get_context" : "<leader>dc",
