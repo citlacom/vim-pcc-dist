@@ -120,6 +120,8 @@ nnoremap <localleader>sd <C-W><C-J>
 nnoremap <localleader>su <C-W><C-K>
 nnoremap <localleader>sl <C-W><C-K>
 nnoremap <localleader>sr <C-W><C-H>
+" Keep only current buffer.
+noremap <localleader>cb :only<CR>
 " Close all buffers (quit all).
 nnoremap <localleader>qa :bufdo bd%<CR>
 " Pretty Formatting mappings
@@ -519,7 +521,7 @@ let g:EasyMotion_use_smartsign_us = 1
 " insensitive (upper or lower cases), facilitate visual identification.
 let g:EasyMotion_use_upper = 1
 " Limit the movement chars indexes.
-let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 " Jump to first movement match pressing space bar.
 let g:EasyMotion_space_jump_first = 1
 " Same as above with enter key.
@@ -743,7 +745,8 @@ nmap <localleader>gb : Gblame<CR>
 nmap <localleader>gh : Gbrowse<CR>
 " Git log search on ancenstral commit diff (requires keyword input).
 nmap <localleader>gcs : Glog -S<CR>
-
+" Show staged changes on commit buffer.
+autocmd FileType gitcommit if ! &previewwindow && expand('%:t') !~# 'index' | :DiffGitCached | endif
 """"""""""""""""""""""""
 " Hardmode configuration
 """"""""""""""""""""""""
