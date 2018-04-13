@@ -118,10 +118,10 @@ set showmode
 " Simplify mappings to on window splits, s(split)dulr(down, up, left, right)
 nnoremap <localleader>sd <C-W><C-J>
 nnoremap <localleader>su <C-W><C-K>
-nnoremap <localleader>sl <C-W><C-K>
+nnoremap <localleader>sl <C-W><C-L>
 nnoremap <localleader>sr <C-W><C-H>
 " Keep only current buffer.
-noremap <localleader>cb :only<CR>
+noremap <localleader>bo :only<CR>
 " Close all buffers (quit all).
 nnoremap <localleader>qa :bufdo bd%<CR>
 " Pretty Formatting mappings
