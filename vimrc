@@ -439,6 +439,8 @@ nmap Z [unite]
 nnoremap <silent> [unite]ed : <C-u>UniteWithCurrentDir -buffer-name=files file_rec/async<CR>
 " Recursive list on current project directory to search files.
 nnoremap <silent> [unite]ep : <C-u>UniteWithProjectDir -start-insert file_rec/async<CR>
+" Recursive list on buffer directory.
+nnoremap <silent> [unite]eb : <C-u>UniteWithBufferDir -start-insert file_rec/async<CR>
 " List files within the current buffer directory.
 nnoremap <silent> [unite]bf : <C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " List directories within the current buffer directory.
