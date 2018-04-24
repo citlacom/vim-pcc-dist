@@ -493,11 +493,10 @@ nnoremap <silent> [unite]gp : <C-u>UnitePrevious<CR>
 nnoremap <silent> [unite]gd : <C-u>UniteDo
 " Start a Unite grep search.
 nnoremap <silent> [unite]gg : <C-u>Unite grep<CR>
+" Start a Unite git grep search of all project files.
+nnoremap <silent> [unite]gr : Unite grep/git::--untracked\ --no-exclude-standard:<CR>
 " Start a Unite grep using cursor word.
 nnoremap <silent> [unite]gw : <C-u>Unite grep:.::`expand('<cword>')`<CR>
-" Start a Unite grep using cursor word but without trigger search.
-nnoremap [unite]gr : <C-u>Unite grep:.:<CR>
-" List all Unite sources.
 nnoremap [unite]f : <C-u>Unite source<CR>
 
 " Drupal Unite mappings
