@@ -841,3 +841,8 @@ let g:vdebug_keymap = {
             \    "eval_under_cursor" : "<leader>de",
             \    "eval_visual" : "<leader>e",
             \}
+
+""""""""""""""""""""""""""
+" Braceless configuration.
+""""""""""""""""""""""""""
+autocmd FileType haml,yaml,coffee BracelessEnable +indent +fold +highlight
