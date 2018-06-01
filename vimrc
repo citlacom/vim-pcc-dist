@@ -846,3 +846,7 @@ let g:vdebug_keymap = {
 " Braceless configuration.
 """"""""""""""""""""""""""
 autocmd FileType haml,yaml,coffee BracelessEnable +indent +fold +highlight
+let g:braceless_easymotion_segment_key = 'y'
+let g:braceless_jump_prev_key = 'j'
+let g:braceless_jump_prev_key = 'k'
+let g:braceless_enable_jump_indent = 1
