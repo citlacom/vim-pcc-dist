@@ -850,3 +850,15 @@ let g:braceless_easymotion_segment_key = 'y'
 let g:braceless_jump_prev_key = 'j'
 let g:braceless_jump_prev_key = 'k'
 let g:braceless_enable_jump_indent = 1
+
+"""""""""""""""""""""""""""""""
+" textobj-comment configuration
+"""""""""""""""""""""""""""""""
+
+let g:textobj_comment_no_default_key_mappings = 1
+xmap ax <Plug>(textobj-comment-a)
+omap ax <Plug>(textobj-comment-a)
+xmap ix <Plug>(textobj-comment-i)
+omap ix <Plug>(textobj-comment-i)
+xmap aC <Plug>(textobj-comment-big-a)
+omap aC <Plug>(textobj-comment-big-a)
