@@ -768,6 +768,11 @@ let g:unite_source_outline_info.behat = {
         \ 'type': 'generic',
         \ }
 
+"""""""""""""""""""""""""""
+" Unite Giti configuration.
+"""""""""""""""""""""""""""
+let g:giti_log_default_line_count = 1000
+
 """"""""""""""""""""""""
 " Markdown configuration
 """"""""""""""""""""""""
