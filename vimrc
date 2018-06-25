@@ -176,46 +176,16 @@ augroup end
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
 
-"-----------
-"Python type
-"-----------
-augroup python
-  autocmd BufRead,BufNewFile,BufEnter *.py set filetype=python
-augroup END
-
-" Set make and error format syntax validation
-autocmd FileType python set makeprg=pylint\ -r\ y\ %
-autocmd FileType python set errorformat=%+P[%f],%t:\ %#%l:%m,%Z,%+IYour\ code%m,%Z,%-G%.%#
-
 """""""""""""""""""""""""""""""
 " Omni Completion configuration
 """""""""""""""""""""""""""""""
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-""""""""""""""""""""""
-" Python plugins fixes
-""""""""""""""""""""""
-"python << EOF
-"import os
-"import sys
-"import vim
-"for p in sys.path:
-    "# Add each directory in sys.path, if it exists.
-    "if os.path.isdir(p):
-        "# Command 'set' needs backslash before each space.
-        "vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-"EOF
-
-"" Fix debugger encoding issue
-"python reload(sys)
-"python sys.setdefaultencoding('big5')
 
 """""""""""""""""""""""""""
 " Neocomplete configuration
@@ -867,3 +837,10 @@ xmap ix <Plug>(textobj-comment-i)
 omap ix <Plug>(textobj-comment-i)
 xmap aC <Plug>(textobj-comment-big-a)
 omap aC <Plug>(textobj-comment-big-a)
+
+""""""""""""""""""""""
+" Pymode configuration
+""""""""""""""""""""""
+
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
