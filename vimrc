@@ -842,5 +842,17 @@ omap aC <Plug>(textobj-comment-big-a)
 " Pymode configuration
 """"""""""""""""""""""
 
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope = 1
+let g:pymode_rope_regenerate_on_write = 0
+
+set noshowmode
+let g:jedi#popup_on_dot = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#show_call_signatures = "2"
+let g:jedi#show_call_signatures_delay = 200
