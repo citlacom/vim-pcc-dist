@@ -800,6 +800,17 @@ let g:syntastic_vim_checkers = ['vimlint']
 let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
 let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 
+""""""""""""""
+" PHP CS Fixer
+""""""""""""""
+let g:php_cs_fixer_level = "symfony"
+let g:php_cs_fixer_config = "default"
+let g:php_cs_fixer_rules = "@PSR2"
+let g:php_cs_fixer_php_path = "php"
+let g:php_cs_fixer_enable_default_mapping = 1
+let g:php_cs_fixer_dry_run = 0
+let g:php_cs_fixer_verbose = 1
+
 """"""""""""""""""""""
 " Vdebug configuration
 """"""""""""""""""""""
@@ -856,3 +867,9 @@ let g:jedi#auto_initialization = 1
 let g:jedi#completions_enabled = 1
 let g:jedi#show_call_signatures = "2"
 let g:jedi#show_call_signatures_delay = 200
+
+""""""""""""""""""""""""""
+" Localvimrc configuration
+""""""""""""""""""""""""""
+
+g:localvimrc_persistent = 2
