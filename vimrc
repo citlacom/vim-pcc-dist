@@ -405,6 +405,8 @@ endif
 " used to quit VIM.
 nnoremap [unite] <Nop>
 nmap Z [unite]
+" List directories within the current directory.
+nnoremap <silent> [unite]ld : <C-u>UniteWithCurrentDir -buffer-name=dirs directory_rec/async<CR>
 " List files within the current directory.
 nnoremap <silent> [unite]ed : <C-u>UniteWithCurrentDir -buffer-name=files file_rec/async<CR>
 " Recursive list on current project directory to search files.
