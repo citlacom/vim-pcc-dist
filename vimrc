@@ -350,7 +350,7 @@ let g:unite_tig_default_fold = 1
 " Unite Sessions
 let g:unite_source_session_options = "blank,buffers,curdir,folds,help,resize,tabpages,winsize"
 " Limit the number candidates list for file recursive and file recursive async.
-call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 5000)
+call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 50000)
 " Max candidates for the grep source.
 call unite#custom#source('grep', 'max_candidates', 5000)
 " Set unlimited number of files on the file_rec cache.
