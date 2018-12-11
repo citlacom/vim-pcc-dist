@@ -858,7 +858,8 @@ omap aC <Plug>(textobj-comment-big-a)
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope = 1
-let g:pymode_rope_regenerate_on_write = 0
+let g:pymode_rope_regenerate_on_write = -1
+let g:pymode_rope_autoimport = 1
 
 set noshowmode
 let g:jedi#popup_on_dot = 1
