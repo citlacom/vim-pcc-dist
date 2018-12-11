@@ -720,12 +720,6 @@ nmap <localleader>gh : Gbrowse<CR>
 nmap <localleader>gcs : Glog -S<CR>
 " Show staged changes on commit buffer.
 autocmd FileType gitcommit if ! &previewwindow && expand('%:t') !~# 'index' | :DiffGitCached | endif
-""""""""""""""""""""""""
-" Hardmode configuration
-""""""""""""""""""""""""
-let g:HardMode_level = 'wannabe'
-" Enable on all buffers.
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 """""""""""""""""""""""""""""
 " Unite Outline configuration
